@@ -39,9 +39,6 @@ img{max-width:100%}
 .redes a{font-weight:700;font-size:14px;text-decoration:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 14px;background:var(--blanco);min-height:40px;display:inline-flex;align-items:center}
 .redes a:hover{background:var(--tinta);color:var(--amarillo)}
 
-.aviso-afiliado{background:var(--tinta);color:#ECE8DA;font-size:13px;padding:8px 0}
-.aviso-afiliado p{margin:0}
-
 .portada{background:var(--amarillo);padding:26px 0 34px;border-bottom:3px solid var(--tinta)}
 .portada h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1;letter-spacing:-0.04em;margin:0 0 12px;text-wrap:balance;max-width:16ch}
 .portada .lema{margin:0 0 22px;font-size:18px;max-width:52ch}
@@ -110,9 +107,6 @@ img{max-width:100%}
     </nav>
   </div>
 </header>
-<div class="aviso-afiliado">
-  <div class="wrap"><p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p></div>
-</div>
 
 <main>
   <section id="vista-lista">
@@ -126,7 +120,7 @@ img{max-width:100%}
         </div>
         <p class="aviso-envio">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"></path><path d="M3 7.5 12 12l9-4.5M12 12v9"></path></svg>
-          Productos de Amazon Haul por menos de 20 €. Llegan en dos semanas o menos.
+          Envío desde China: los pedidos tardan, pide con margen.
         </p>
       </div>
     </div>
@@ -144,10 +138,9 @@ img{max-width:100%}
 
 <footer class="pie">
   <div class="wrap">
-    <p><strong>Enlaces de afiliado.</strong> En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. Para ti el precio es el mismo.</p>
-    <p>Precio y disponibilidad a la fecha indicada en cada oferta; pueden cambiar. Se aplicará el precio que figure en Amazon en el momento de la compra.</p>
-    <p>Esta web no vende ni envía productos.</p>
-    <p>Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o de sus filiales.</p>
+    <p><strong>Enlaces de afiliado.</strong> Si compras a través de esta web, Precio Ridículo puede recibir una pequeña comisión, sin coste extra para ti.</p>
+    <p>Los precios son los de la fecha indicada en cada oferta y pueden cambiar. El precio final y el envío son los que veas en la tienda.</p>
+    <p>Esta web no vende ni envía productos y no es la tienda oficial de ninguna marca.</p>
     <p>Titular: Adrián Méndez · NIF: 42264958C · Contacto: <a href="mailto:precioridiculo7@gmail.com">precioridiculo7@gmail.com</a></p>
     <p>© 2026 Precio Ridículo</p>
   </div>
@@ -159,13 +152,13 @@ const CONFIG = {
   // Opcional: enlace CSV de tu hoja de Google publicada en la web.
   // Si lo dejas vacío, la web usa la lista OFERTAS de abajo.
   hojaCSV: "",
-  textoBoton: "Ver en Amazon",
+  textoBoton: "Ver en Hacoo",
   categorias: ["Moda", "Gadgets", "Casa"]
 };
 
 // ================== OFERTAS ==================
 // numero: el número que sale en el vídeo · precio y antes: en euros
-// enlace: tu enlace de afiliado de Amazon (productos de Amazon Haul) · imagen: foto tuya o la imagen de SiteStripe · fecha: AAAA-MM-DD
+// enlace: tu enlace de afiliado de Admitad · imagen: URL de la foto · fecha: AAAA-MM-DD
 // Borra las de ejemplo cuando pongas las tuyas.
 const OFERTAS = [
   { numero: 6, producto: "Lámpara de noche táctil", categoria: "Casa", precio: 4.79, antes: 16.99, descripcion: "Se enciende tocándola y tiene tres intensidades de luz. Queda muy bien en la mesilla.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
@@ -264,7 +257,7 @@ function pintarFicha(o){
       '<div class="ficha-info"><h1>' + esc(o.producto) + '</h1>' + precios(o) +
         (o.descripcion ? '<p class="descripcion">' + esc(o.descripcion) + '</p>' : "") +
         boton(o) + notaFecha(o) +
-        '<p class="nota">Llega en dos semanas o menos. En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>' +
+        '<p class="nota">Envío desde China: pide con margen. Enlace de afiliado: si compras, me llevo una pequeña comisión y a ti te cuesta lo mismo.</p>' +
       '</div>' +
     '</div>';
   document.title = o.producto + " · Precio Ridículo";
