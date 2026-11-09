@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precio Ridículo</title>
+<meta name="description" content="Cosas que parecen caras y no lo son: moda, gadgets y casa a precio de risa.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='26' fill='%23FFD60A'/%3E%3Cpath d='M40 32 H100 V88 H40 L16 60 Z' fill='%23111111'/%3E%3Ccircle cx='36' cy='60' r='7' fill='%23FFD60A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Mundo amarillo y tinta, como el logo: tarjetas tipo pegatina con sombra dura. Móvil primero. */
+  --amarillo:#FFD60A;
+  --tinta:#111111;
+  --papel:#FFFDF2;
+  --blanco:#FFFFFF;
+  --gris:#59564A;
+  --linea:#EDE6C8;
+  --display:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --texto:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.cabecera{background:var(--amarillo);border-bottom:3px solid var(--tinta)}
+.cabecera .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:900;letter-spacing:-0.03em;font-size:22px;line-height:1;min-height:44px}
+.logo .banda{background:var(--tinta);color:var(--amarillo);padding:3px 8px 5px;border-radius:6px;transform:rotate(-4deg);display:inline-block}
+.redes{display:flex;gap:8px}
+.redes a{font-weight:700;font-size:14px;text-decoration:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 14px;background:var(--blanco);min-height:40px;display:inline-flex;align-items:center}
+.redes a:hover{background:var(--tinta);color:var(--amarillo)}
+
+.aviso-afiliado{background:var(--tinta);color:#ECE8DA;font-size:13px;padding:8px 0}
+.aviso-afiliado p{margin:0}
+
+.portada{background:var(--amarillo);padding:26px 0 34px;border-bottom:3px solid var(--tinta)}
+.portada h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1;letter-spacing:-0.04em;margin:0 0 12px;text-wrap:balance;max-width:16ch}
+.portada .lema{margin:0 0 22px;font-size:18px;max-width:52ch}
+.buscador{display:flex;flex-direction:column;gap:8px;max-width:560px}
+.buscador label{font-weight:700;font-size:15px}
+.buscador input{font:inherit;font-size:18px;padding:14px 16px;border:3px solid var(--tinta);border-radius:12px;background:var(--blanco);color:var(--tinta);box-shadow:4px 4px 0 var(--tinta);width:100%}
+.aviso-envio{font-size:14px;font-weight:600;margin:18px 0 0;display:flex;gap:8px;align-items:center}
+.aviso-envio svg{flex:none}
+
+.filtros{display:flex;flex-wrap:wrap;gap:8px;padding:22px 0 4px}
+.filtros button{font:inherit;font-weight:700;font-size:15px;padding:8px 16px;border-radius:999px;border:2px solid var(--tinta);background:var(--blanco);color:var(--tinta);cursor:pointer;min-height:44px}
+.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--amarillo)}
+.estado{color:var(--gris);font-size:14px;margin:10px 0 16px}
+
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;padding-bottom:44px}
+.tarjeta{background:var(--blanco);border:2px solid var(--tinta);border-radius:16px;box-shadow:4px 4px 0 var(--tinta);display:flex;flex-direction:column;overflow:hidden}
+.foto{aspect-ratio:1/1;background:var(--linea);display:block;position:relative;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.numero{position:absolute;top:10px;left:10px;background:var(--tinta);color:var(--amarillo);font-weight:900;font-size:15px;padding:3px 9px 4px;border-radius:8px;transform:rotate(-4deg);font-variant-numeric:tabular-nums}
+.ejemplo{position:absolute;top:10px;right:10px;background:var(--blanco);border:2px solid var(--tinta);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:6px}
+.cuerpo{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cuerpo h2{font-size:16px;line-height:1.25;margin:0;font-weight:700}
+.cuerpo h2 a{text-decoration:none}
+.cuerpo h2 a:hover{text-decoration:underline}
+.precios{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;font-variant-numeric:tabular-nums}
+.precio{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:-0.03em;line-height:1}
+.antes{color:var(--gris);text-decoration:line-through;font-size:14px}
+.descuento{background:var(--amarillo);border:2px solid var(--tinta);font-weight:800;font-size:13px;padding:0 7px;border-radius:999px}
+.boton{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:12px;background:var(--tinta);color:var(--amarillo);font-weight:800;text-decoration:none;font-size:15px;border:2px solid var(--tinta);padding:0 12px;text-align:center}
+.boton:hover{background:var(--amarillo);color:var(--tinta)}
+.boton.pendiente{background:var(--linea);color:var(--gris);border-color:var(--linea);cursor:default}
+.nota{font-size:12px;color:var(--gris);margin:0}
+.vacio{grid-column:1/-1;border:2px dashed var(--tinta);border-radius:16px;padding:28px;text-align:center;background:var(--blanco)}
+.placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.placeholder svg{width:42%;height:42%}
+
+.ficha{padding:22px 0 52px}
+.volver{display:inline-flex;align-items:center;gap:6px;font-weight:700;text-decoration:none;margin-bottom:16px;min-height:44px}
+.volver:hover{text-decoration:underline}
+.ficha-caja{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px;background:var(--blanco);border:3px solid var(--tinta);border-radius:20px;box-shadow:6px 6px 0 var(--tinta);padding:20px}
+.ficha-caja .foto{border-radius:14px}
+.ficha-info{display:flex;flex-direction:column;gap:14px}
+.ficha-info h1{font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-0.03em;margin:0;text-wrap:balance}
+.ficha-info .precio{font-size:46px}
+.ficha-info .descripcion{margin:0;font-size:17px;max-width:60ch}
+.ficha-info .boton{font-size:18px;min-height:56px;margin-top:6px}
+
+.pie{background:var(--tinta);color:#ECE8DA;padding:32px 0 44px;font-size:14px}
+.pie .wrap{display:flex;flex-direction:column;gap:10px}
+.pie p{margin:0;max-width:70ch}
+.pie strong{color:var(--amarillo)}
+.pie a{color:var(--amarillo)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="cabecera">
+  <div class="wrap">
+    <a class="logo" href="#chollos" aria-label="Precio Ridículo, ir al inicio">
+      <svg width="40" height="27" viewBox="0 0 120 80" aria-hidden="true" style="transform:rotate(-12deg)"><path d="M30 4 H110 A6 6 0 0 1 116 10 V70 A6 6 0 0 1 110 76 H30 L4 40 Z" fill="#111111"></path><circle cx="24" cy="40" r="7" fill="#FFD60A"></circle></svg>
+      <span>PRECIO</span><span class="banda">RIDÍCULO</span>
+    </a>
+    <nav class="redes" aria-label="Redes sociales">
+      <a id="enlace-tiktok" href="https://www.tiktok.com/@precioridiculo">TikTok</a>
+      <a id="enlace-instagram" href="https://www.instagram.com/precioridiculo">Instagram</a>
+    </nav>
+  </div>
+</header>
+<div class="aviso-afiliado">
+  <div class="wrap"><p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p></div>
+</div>
+
+<main>
+  <section id="vista-lista">
+    <div class="portada">
+      <div class="wrap">
+        <h1>Cosas que parecen caras y no lo son</h1>
+        <p class="lema">Moda, gadgets y casa a precio de risa. Hallazgos nuevos cada día.</p>
+        <div class="buscador">
+          <label for="buscar">¿Vienes de un vídeo? Escribe su número o busca el producto</label>
+          <input id="buscar" type="search" placeholder="Ej.: 12 o sudadera" autocomplete="off">
+        </div>
+        <p class="aviso-envio">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"></path><path d="M3 7.5 12 12l9-4.5M12 12v9"></path></svg>
+          Productos de Amazon Haul por menos de 20 €. Llegan en dos semanas o menos.
+        </p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría"></div>
+      <p class="estado" id="estado" aria-live="polite"></p>
+      <div class="rejilla" id="rejilla"></div>
+    </div>
+  </section>
+
+  <section id="vista-ficha" class="ficha" hidden>
+    <div class="wrap" id="ficha"></div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <p><strong>Enlaces de afiliado.</strong> En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. Para ti el precio es el mismo.</p>
+    <p>Precio y disponibilidad a la fecha indicada en cada oferta; pueden cambiar. Se aplicará el precio que figure en Amazon en el momento de la compra.</p>
+    <p>Esta web no vende ni envía productos.</p>
+    <p>Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o de sus filiales.</p>
+    <p>Titular: [TU NOMBRE] · NIF: [TU NIF] · Contacto: [TU EMAIL]</p>
+    <p>© 2026 Precio Ridículo</p>
+  </div>
+</footer>
+
+<script>
+// ================== CONFIGURACIÓN ==================
+const CONFIG = {
+  // Opcional: enlace CSV de tu hoja de Google publicada en la web.
+  // Si lo dejas vacío, la web usa la lista OFERTAS de abajo.
+  hojaCSV: "",
+  textoBoton: "Ver en Amazon",
+  categorias: ["Moda", "Gadgets", "Casa"]
+};
+
+// ================== OFERTAS ==================
+// numero: el número que sale en el vídeo · precio y antes: en euros
+// enlace: tu enlace de afiliado de Amazon (productos de Amazon Haul) · imagen: foto tuya o la imagen de SiteStripe · fecha: AAAA-MM-DD
+// Borra las de ejemplo cuando pongas las tuyas.
+const OFERTAS = [
+  { numero: 6, producto: "Lámpara de noche táctil", categoria: "Casa", precio: 4.79, antes: 16.99, descripcion: "Se enciende tocándola y tiene tres intensidades de luz. Queda muy bien en la mesilla.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
+  { numero: 5, producto: "Soporte magnético de móvil para coche", categoria: "Gadgets", precio: 2.99, antes: 9.99, descripcion: "Se pega a la rejilla del aire y sujeta el móvil con imán. Se pone en un segundo.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
+  { numero: 4, producto: "Bolso bandolera acolchado", categoria: "Moda", precio: 6.49, antes: 22.00, descripcion: "Acolchado, ligero y con correa ajustable. Cabe el móvil, la cartera y las llaves.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
+  { numero: 3, producto: "Set de 6 organizadores de cajón", categoria: "Casa", precio: 3.99, antes: 12.99, descripcion: "Seis cajitas de distintos tamaños para ordenar cajones de cocina, baño o escritorio.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
+  { numero: 2, producto: "Proyector de estrellas LED", categoria: "Gadgets", precio: 5.49, antes: 19.99, descripcion: "Llena el techo de estrellas en varios colores. Funciona por USB.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
+  { numero: 1, producto: "Sudadera oversize básica", categoria: "Moda", precio: 7.99, antes: 24.99, descripcion: "Tela gordita y corte ancho. Varios colores y tallas de la S a la XXL.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true }
+];
+
+// ================== MOTOR DE LA WEB (no hace falta tocarlo) ==================
+const TINTA = "#111111";
+const ICONOS = {
+  "Moda": '<path d="M30 22 L44 14 Q50 22 56 14 L70 22 L82 36 L71 43 L66 38 V84 H34 V38 L29 43 L18 36 Z"/>',
+  "Gadgets": '<path d="M56 10 L28 54 H48 L42 90 L72 44 H52 Z"/>',
+  "Casa": '<path d="M16 50 L50 20 L84 50"/><path d="M27 42 V82 H73 V42"/><path d="M44 82 V62 H56 V82"/>'
+};
+const fmtEuro = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" });
+let ofertas = [];
+let categoria = "Todo";
+let busqueda = "";
+
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function urlSegura(u){ return /^https?:\/\//i.test(String(u || "").trim()) ? String(u).trim() : ""; }
+function num(v){
+  if (typeof v === "number") return v;
+  const s = String(v || "").replace(/[^\d,.-]/g, "").replace(/\.(?=\d{3}(\D|$))/g, "").replace(",", ".");
+  const n = parseFloat(s);
+  return isNaN(n) ? null : n;
+}
+function fecha(d){
+  // Acepta 20/11/2026 (como lo da la hoja de Google) o 2026-11-20
+  const s = String(d || "").trim();
+  let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/), f = null;
+  if (m) f = new Date(+m[1], +m[2] - 1, +m[3], 12);
+  else if ((m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/))) f = new Date(m[3].length === 2 ? 2000 + +m[3] : +m[3], +m[2] - 1, +m[1], 12);
+  return f && !isNaN(f) ? f.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" }) : "";
+}
+function descuento(o){ return (o.precio && o.antes && o.antes > o.precio) ? Math.round((1 - o.precio / o.antes) * 100) : 0; }
+function icono(cat){
+  return '<div class="placeholder"><svg viewBox="0 0 100 100" fill="none" stroke="' + TINTA + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + (ICONOS[cat] || ICONOS[CONFIG.categorias[0]]) + '</svg></div>';
+}
+function foto(o){
+  const src = urlSegura(o.imagen);
+  return src ? '<img src="' + esc(src) + '" alt="" loading="lazy" data-cat="' + esc(o.categoria) + '">' : icono(o.categoria);
+}
+function boton(o){
+  const href = urlSegura(o.enlace);
+  return href
+    ? '<a class="boton" href="' + esc(href) + '" target="_blank" rel="sponsored nofollow noopener">' + esc(CONFIG.textoBoton) + '</a>'
+    : '<span class="boton pendiente">Enlace pendiente</span>';
+}
+function precios(o){
+  const d = descuento(o);
+  return '<div class="precios"><span class="precio">' + (o.precio != null ? fmtEuro.format(o.precio) : "") + '</span>' +
+    (o.antes ? '<span class="antes"><span class="oculto">Antes </span>' + fmtEuro.format(o.antes) + '</span>' : "") +
+    (d ? '<span class="descuento">-' + d + ' %</span>' : "") + '</div>';
+}
+function notaFecha(o){ const f = fecha(o.fecha); return f ? '<p class="nota">Precio a ' + f + '. Puede cambiar.</p>' : ""; }
+
+function tarjeta(o){
+  return '<article class="tarjeta">' +
+    '<a class="foto" href="#oferta-' + esc(o.numero) + '" tabindex="-1" aria-hidden="true">' + foto(o) +
+      '<span class="numero">#' + esc(o.numero) + '</span>' + (o.ejemplo ? '<span class="ejemplo">Ejemplo</span>' : "") + '</a>' +
+    '<div class="cuerpo"><h2><a href="#oferta-' + esc(o.numero) + '">' + esc(o.producto) + '</a></h2>' + precios(o) + notaFecha(o) + boton(o) + '</div>' +
+  '</article>';
+}
+
+function filtradas(){
+  const t = busqueda.trim().toLowerCase().replace(/^#\s*/, "").replace(/^n[ºo°.]?\s*(?=\d)/, "");
+  return ofertas.filter(o => {
+    if (categoria !== "Todo" && o.categoria !== categoria) return false;
+    if (!t) return true;
+    if (/^\d+$/.test(t)) return String(o.numero) === t;
+    return (o.producto + " " + o.descripcion + " " + o.categoria).toLowerCase().includes(t);
+  });
+}
+
+function pintarFiltros(){
+  const cats = ["Todo"].concat(CONFIG.categorias);
+  $("filtros").innerHTML = cats.map(c => '<button type="button" aria-pressed="' + (c === categoria) + '" data-cat="' + esc(c) + '">' + esc(c) + '</button>').join("");
+}
+function pintarLista(){
+  const lista = filtradas();
+  $("estado").textContent = lista.length === 1 ? "1 chollo" : lista.length + " chollos";
+  $("rejilla").innerHTML = lista.length
+    ? lista.map(tarjeta).join("")
+    : '<div class="vacio"><strong>Ningún chollo coincide.</strong><br>Prueba con otro número o con otra palabra.</div>';
+}
+function pintarFicha(o){
+  $("ficha").innerHTML =
+    '<a class="volver" href="#chollos">← Todos los chollos</a>' +
+    '<div class="ficha-caja">' +
+      '<div class="foto">' + foto(o) + '<span class="numero">#' + esc(o.numero) + '</span>' + (o.ejemplo ? '<span class="ejemplo">Ejemplo</span>' : "") + '</div>' +
+      '<div class="ficha-info"><h1>' + esc(o.producto) + '</h1>' + precios(o) +
+        (o.descripcion ? '<p class="descripcion">' + esc(o.descripcion) + '</p>' : "") +
+        boton(o) + notaFecha(o) +
+        '<p class="nota">Llega en dos semanas o menos. En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>' +
+      '</div>' +
+    '</div>';
+  document.title = o.producto + " · Precio Ridículo";
+}
+function ruta(){
+  const m = location.hash.match(/^#oferta-(\d+)$/);
+  const o = m && ofertas.find(x => String(x.numero) === m[1]);
+  if (o){
+    pintarFicha(o);
+    $("vista-lista").hidden = true; $("vista-ficha").hidden = false;
+    window.scrollTo(0, 0);
+  } else {
+    document.title = "Precio Ridículo";
+    $("vista-ficha").hidden = true; $("vista-lista").hidden = false;
+  }
+}
+
+function parseCSV(txt){
+  const filas = []; let fila = [], campo = "", q = false;
+  for (let i = 0; i < txt.length; i++){
+    const c = txt[i];
+    if (q){ if (c === '"'){ if (txt[i + 1] === '"'){ campo += '"'; i++; } else q = false; } else campo += c; }
+    else if (c === '"') q = true;
+    else if (c === ","){ fila.push(campo); campo = ""; }
+    else if (c === "\n"){ fila.push(campo); filas.push(fila); fila = []; campo = ""; }
+    else if (c !== "\r") campo += c;
+  }
+  if (campo || fila.length){ fila.push(campo); filas.push(fila); }
+  return filas;
+}
+function desdeCSV(txt){
+  const [cab, ...filas] = parseCSV(txt);
+  if (!cab) return [];
+  const claves = cab.map(h => h.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "_"));
+  return filas.filter(f => f.some(c => c.trim())).map(f => {
+    const r = {}; claves.forEach((k, i) => r[k] = (f[i] || "").trim());
+    return { numero: num(r.numero) || 0, producto: r.producto || "", categoria: r.categoria || "", precio: num(r.precio), antes: num(r.precio_antes || r.antes),
+      descripcion: r.descripcion || "", enlace: r.enlace || "", imagen: r.imagen || "", fecha: r.fecha || "" };
+  }).filter(o => o.producto);
+}
+
+document.addEventListener("error", e => {
+  const img = e.target;
+  if (img && img.tagName === "IMG" && img.dataset.cat !== undefined){ img.outerHTML = icono(img.dataset.cat); }
+}, true);
+$("filtros").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  categoria = b.dataset.cat; pintarFiltros(); pintarLista();
+});
+$("buscar").addEventListener("input", e => { busqueda = e.target.value; pintarLista(); });
+window.addEventListener("hashchange", ruta);
+
+(async function iniciar(){
+  ofertas = OFERTAS.slice();
+  if (CONFIG.hojaCSV){
+    try {
+      const r = await fetch(CONFIG.hojaCSV, { cache: "no-store" });
+      if (r.ok){ const d = desdeCSV(await r.text()); if (d.length) ofertas = d; }
+    } catch (err) { /* si la hoja falla, se quedan las ofertas de la lista */ }
+  }
+  ofertas.sort((a, b) => (b.numero || 0) - (a.numero || 0));
+  pintarFiltros(); pintarLista(); ruta();
+})();
+</script>
+</body>
+</html>
