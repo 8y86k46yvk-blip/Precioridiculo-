@@ -2,108 +2,258 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Precio Ridículo</title>
-<meta name="description" content="Cosas que parecen caras y no lo son: moda, gadgets y casa a precio de risa.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Precio Ridículo · Cosas que parecen caras y no lo son</title>
+<meta name="description" content="Cosas que parecen caras y no lo son: moda, gadgets y casa a precio de risa. Hallazgos nuevos cada día.">
+<meta name="theme-color" content="#FFD60A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Precio Ridículo · Cosas que parecen caras y no lo son">
+<meta property="og:description" content="Moda, gadgets y casa a precio de risa. Hallazgos nuevos cada día.">
+<meta property="og:image" content="https://elprecioridiculo.com/assets/web/compartir.jpg">
+<meta property="og:url" content="https://elprecioridiculo.com/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='26' fill='%23FFD60A'/%3E%3Cpath d='M40 32 H100 V88 H40 L16 60 Z' fill='%23111111'/%3E%3Ccircle cx='36' cy='60' r='7' fill='%23FFD60A'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/web/icono.png">
+<link rel="preload" as="image" href="assets/web/ridi-3-risa.webp">
+<link rel="preload" as="font" type="font/woff" href="assets/fuentes/inter-900.woff" crossorigin>
 <style>
+/* Inter (licencia SIL OFL, ver assets/fuentes/LICENCIA-Inter.txt), servida desde la propia web: sin llamadas a terceros */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fuentes/inter-400.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fuentes/inter-500.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fuentes/inter-600.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fuentes/inter-700.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fuentes/inter-800.woff) format('woff')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fuentes/inter-900.woff) format('woff')}
 :root{
-  /* Mundo amarillo y tinta, como el logo: tarjetas tipo pegatina con sombra dura. Móvil primero. */
+  /* Amarillo y tinta, estilo cartel de oferta: bordes gruesos, sombra dura y pegatinas. Ridi (amarillo) destaca sobre negro y blanco. Móvil primero. */
   --amarillo:#FFD60A;
+  --amarillo-2:#FFE766;
   --tinta:#111111;
   --papel:#FFFDF2;
+  --crema:#FFF7D6;
   --blanco:#FFFFFF;
   --gris:#59564A;
-  --linea:#EDE6C8;
-  --display:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --rojo:#E5322D;
+  --verde:#138A4B;
+  --borde:3px solid var(--tinta);
+  --sombra:5px 5px 0 var(--tinta);
   --texto:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 html,body{margin:0}
-body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-img{max-width:100%}
-:focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+img{max-width:100%;display:block}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--rojo);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.cabecera{background:var(--amarillo);border-bottom:3px solid var(--tinta)}
-.cabecera .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:900;letter-spacing:-0.03em;font-size:22px;line-height:1;min-height:44px}
-.logo .banda{background:var(--tinta);color:var(--amarillo);padding:3px 8px 5px;border-radius:6px;transform:rotate(-4deg);display:inline-block}
-.redes{display:flex;gap:8px}
-.redes a{font-weight:700;font-size:14px;text-decoration:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 14px;background:var(--blanco);min-height:40px;display:inline-flex;align-items:center}
-.redes a:hover{background:var(--tinta);color:var(--amarillo)}
+/* ---------- Cinta ---------- */
+.cinta{background:var(--tinta);color:var(--amarillo);overflow:hidden;font-weight:900;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-bottom:3px solid var(--tinta)}
+.cinta .pista{display:flex;width:max-content;animation:cinta 28s linear infinite}
+.cinta span{padding:9px 0;white-space:nowrap}
+.cinta span::after{content:"★";margin:0 18px;color:var(--blanco)}
+@keyframes cinta{to{transform:translateX(-50%)}}
 
-.portada{background:var(--amarillo);padding:26px 0 34px;border-bottom:3px solid var(--tinta)}
-.portada h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1;letter-spacing:-0.04em;margin:0 0 12px;text-wrap:balance;max-width:16ch}
-.portada .lema{margin:0 0 22px;font-size:18px;max-width:52ch}
-.buscador{display:flex;flex-direction:column;gap:8px;max-width:560px}
-.buscador label{font-weight:700;font-size:15px}
-.buscador input{font:inherit;font-size:18px;padding:14px 16px;border:3px solid var(--tinta);border-radius:12px;background:var(--blanco);color:var(--tinta);box-shadow:4px 4px 0 var(--tinta);width:100%}
-.aviso-envio{font-size:14px;font-weight:600;margin:18px 0 0;display:flex;gap:8px;align-items:center}
-.aviso-envio svg{flex:none}
+/* ---------- Cabecera ---------- */
+.cabecera{position:sticky;top:0;z-index:20;background:var(--amarillo);border-bottom:var(--borde)}
+.cabecera .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:62px}
+.logo{display:flex;align-items:center;gap:6px;text-decoration:none;font-weight:900;letter-spacing:-0.03em;font-size:18px;line-height:1;min-height:44px;white-space:nowrap}
+.logo .banda{background:var(--tinta);color:var(--amarillo);padding:4px 8px 6px;border-radius:6px;transform:rotate(-4deg);display:inline-block}
+@media (max-width:380px){.logo svg{display:none}}
+@media (min-width:760px){.logo{font-size:24px;gap:8px}.menu a{padding:0 12px}}
+.menu{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+.menu a{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;min-width:40px;padding:0 8px;border-radius:12px;border:2px solid var(--tinta);background:var(--blanco);text-decoration:none;font-weight:800;font-size:14px;box-shadow:2px 2px 0 var(--tinta);transition:transform .12s,box-shadow .12s}
+.menu a:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--tinta)}
+.menu .texto{display:none}
+.menu svg{width:19px;height:19px}
+@media (min-width:760px){.menu .texto{display:inline}}
 
-.filtros{display:flex;flex-wrap:wrap;gap:8px;padding:22px 0 4px}
-.filtros button{font:inherit;font-weight:700;font-size:15px;padding:8px 16px;border-radius:999px;border:2px solid var(--tinta);background:var(--blanco);color:var(--tinta);cursor:pointer;min-height:44px}
-.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--amarillo)}
-.estado{color:var(--gris);font-size:14px;margin:10px 0 16px}
+/* ---------- Portada ---------- */
+.portada{position:relative;background:var(--amarillo);overflow:hidden;isolation:isolate;border-bottom:var(--borde)}
+.portada::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(17,17,17,.13) 1.6px,transparent 1.8px);background-size:18px 18px;z-index:-1;mask-image:radial-gradient(120% 90% at 85% 40%,#000 30%,transparent 75%)}
+.portada .wrap{display:grid;grid-template-columns:1fr;gap:6px;padding-top:28px;padding-bottom:30px;align-items:center}
+.sello{display:inline-flex;align-items:center;gap:8px;background:var(--blanco);border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-weight:900;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:16px;transform:rotate(-2deg)}
+.portada h1{font-weight:900;font-size:clamp(40px,10.5vw,80px);line-height:.95;letter-spacing:-0.045em;margin:0 0 16px;text-wrap:balance;max-width:12ch}
+.portada h1 .no{display:inline-block;background:var(--tinta);color:var(--amarillo);padding:0 .14em .06em;border-radius:.12em;transform:rotate(-2.5deg);margin-top:.08em}
+.portada .lema{margin:0 0 20px;font-size:18px;max-width:42ch;font-weight:500}
+.buscador{max-width:560px}
+.buscador label{display:block;font-weight:900;font-size:14px;margin-bottom:8px}
+.buscador .campo{position:relative}
+.buscador svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:22px;height:22px;pointer-events:none}
+.buscador input{font:inherit;font-size:18px;font-weight:600;padding:15px 16px 15px 50px;border:var(--borde);border-radius:16px;background:var(--blanco);color:var(--tinta);width:100%;box-shadow:var(--sombra)}
+.buscador input::placeholder{color:#8B8775;font-weight:500}
+.datos{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.dato{display:inline-flex;align-items:center;gap:6px;background:var(--blanco);border:2px solid var(--tinta);border-radius:12px;padding:7px 11px;font-size:13.5px;font-weight:700;box-shadow:3px 3px 0 var(--tinta)}
+.dato:nth-child(2){transform:rotate(1.5deg)}
+.dato:nth-child(3){transform:rotate(-1deg)}
+.dato b{font-weight:900}
+.escena{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:250px;margin-top:6px}
+.escena .ridi-grande{height:240px;width:auto;filter:drop-shadow(0 18px 16px rgba(17,17,17,.28));animation:bota 2.6s ease-in-out infinite}
+@keyframes bota{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.bocadillo{position:absolute;top:0;left:calc(50% - 175px);background:var(--blanco);border:var(--borde);border-radius:18px;padding:10px 14px;font-weight:900;font-size:19px;letter-spacing:-0.02em;line-height:1.05;box-shadow:4px 4px 0 var(--tinta);transform:rotate(-5deg);max-width:160px;text-align:center}
+.bocadillo::after{content:"";position:absolute;right:22px;bottom:-15px;width:20px;height:20px;background:var(--blanco);border-right:var(--borde);border-bottom:var(--borde);transform:rotate(45deg) skew(8deg,8deg)}
+.escena .sombra{position:absolute;bottom:0;width:170px;height:20px;border-radius:50%;background:rgba(17,17,17,.22);left:50%;transform:translateX(-50%)}
+@media (min-width:860px){
+  .portada .wrap{grid-template-columns:1.2fr .8fr;padding-top:54px;padding-bottom:58px}
+  .escena{min-height:420px}
+  .escena .ridi-grande{height:380px}
+  .bocadillo{left:-10px;top:20px;font-size:24px;max-width:200px}
+}
 
-.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;padding-bottom:44px}
-.tarjeta{background:var(--blanco);border:2px solid var(--tinta);border-radius:16px;box-shadow:4px 4px 0 var(--tinta);display:flex;flex-direction:column;overflow:hidden}
-.foto{aspect-ratio:1/1;background:var(--linea);display:block;position:relative;overflow:hidden}
-.foto img{width:100%;height:100%;object-fit:cover;display:block}
-.numero{position:absolute;top:10px;left:10px;background:var(--tinta);color:var(--amarillo);font-weight:900;font-size:15px;padding:3px 9px 4px;border-radius:8px;transform:rotate(-4deg);font-variant-numeric:tabular-nums}
-.ejemplo{position:absolute;top:10px;right:10px;background:var(--blanco);border:2px solid var(--tinta);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:6px}
-.cuerpo{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
-.cuerpo h2{font-size:16px;line-height:1.25;margin:0;font-weight:700}
-.cuerpo h2 a{text-decoration:none}
-.cuerpo h2 a:hover{text-decoration:underline}
-.precios{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;font-variant-numeric:tabular-nums}
-.precio{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:-0.03em;line-height:1}
-.antes{color:var(--gris);text-decoration:line-through;font-size:14px}
-.descuento{background:var(--amarillo);border:2px solid var(--tinta);font-weight:800;font-size:13px;padding:0 7px;border-radius:999px}
-.boton{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:12px;background:var(--tinta);color:var(--amarillo);font-weight:800;text-decoration:none;font-size:15px;border:2px solid var(--tinta);padding:0 12px;text-align:center}
-.boton:hover{background:var(--amarillo);color:var(--tinta)}
-.boton.pendiente{background:var(--linea);color:var(--gris);border-color:var(--linea);cursor:default}
-.nota{font-size:12px;color:var(--gris);margin:0}
-.vacio{grid-column:1/-1;border:2px dashed var(--tinta);border-radius:16px;padding:28px;text-align:center;background:var(--blanco)}
-.placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.placeholder svg{width:42%;height:42%}
+/* ---------- Secciones ---------- */
+.seccion{padding:34px 0 0}
+.titulo-seccion{margin:0 0 16px}
+.titulo-seccion h2{margin:0;font-size:clamp(26px,5vw,38px);font-weight:900;letter-spacing:-0.035em;line-height:1.05}
+.titulo-seccion h2 mark{background:var(--amarillo);color:var(--tinta);padding:0 .12em;box-shadow:inset 0 -.12em 0 rgba(0,0,0,.08)}
+.titulo-seccion p{margin:6px 0 0;color:var(--gris);font-size:15px;font-weight:500}
+.aviso-ejemplos{display:flex;gap:12px;align-items:center;background:var(--blanco);border:var(--borde);border-radius:18px;padding:12px 14px;margin:0 0 16px;box-shadow:var(--sombra);font-weight:600;font-size:15px}
+.aviso-ejemplos img{height:70px;width:auto;flex:0 0 auto}
+.aviso-ejemplos strong{display:block;font-weight:900}
 
-.ficha{padding:22px 0 52px}
-.volver{display:inline-flex;align-items:center;gap:6px;font-weight:700;text-decoration:none;margin-bottom:16px;min-height:44px}
+/* ---------- Destacado ---------- */
+.destacado{display:grid;grid-template-columns:1fr;background:var(--blanco);border:var(--borde);border-radius:24px;overflow:hidden;box-shadow:8px 8px 0 var(--tinta)}
+.destacado .cartel{aspect-ratio:4/3;border-bottom:var(--borde)}
+.destacado .info{padding:20px;display:flex;flex-direction:column;gap:12px}
+.destacado h3{margin:0;font-size:clamp(22px,4vw,32px);line-height:1.1;letter-spacing:-0.03em;font-weight:900;text-wrap:balance}
+.destacado h3 a{text-decoration:none}
+.destacado .descripcion{margin:0;color:var(--gris);font-size:16px}
+.destacado .precio{font-size:46px}
+.destacado .boton{font-size:18px;min-height:58px;margin-top:6px}
+@media (min-width:760px){.destacado{grid-template-columns:1fr 1fr}.destacado .cartel{aspect-ratio:auto;min-height:400px;border-bottom:0;border-right:var(--borde)}.destacado .info{padding:34px;justify-content:center}}
+
+/* ---------- Filtros ---------- */
+.herramientas{position:sticky;top:65px;z-index:10;background:linear-gradient(var(--papel) 82%,rgba(255,253,242,0));padding:12px 0 12px;margin-bottom:4px}
+.filtros{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 6px 6px 2px}
+.filtros::-webkit-scrollbar{display:none}
+.filtros button{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;font-weight:900;font-size:15px;padding:0 15px;border-radius:999px;border:2px solid var(--tinta);background:var(--blanco);color:var(--tinta);cursor:pointer;min-height:44px;box-shadow:3px 3px 0 var(--tinta);transition:transform .12s,box-shadow .12s}
+.filtros button:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--tinta)}
+.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--amarillo);box-shadow:3px 3px 0 var(--amarillo),3px 3px 0 2px var(--tinta)}
+.filtros svg{width:18px;height:18px}
+.orden{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.estado{color:var(--gris);font-size:14px;margin:0;font-weight:700}
+.orden label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--gris)}
+.orden select{font:inherit;font-size:14px;font-weight:800;color:var(--tinta);border:2px solid var(--tinta);border-radius:10px;background:var(--blanco);padding:7px 10px;min-height:40px}
+
+/* ---------- Tarjetas ---------- */
+.rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-bottom:20px}
+@media (min-width:700px){.rejilla{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+@media (min-width:1040px){.rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tarjeta{background:var(--blanco);border:var(--borde);border-radius:18px;box-shadow:var(--sombra);display:flex;flex-direction:column;overflow:hidden;transition:transform .15s,box-shadow .15s;animation:entra .45s both}
+.tarjeta:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--tinta)}
+@keyframes entra{from{opacity:0;transform:translateY(14px) rotate(-1deg)}to{opacity:1;transform:none}}
+.cartel{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;text-decoration:none;background:var(--tinta);isolation:isolate;border-bottom:var(--borde)}
+.cartel::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,214,10,.22) 1.4px,transparent 1.6px);background-size:14px 14px;z-index:-1;mask-image:radial-gradient(90% 80% at 20% 30%,#000 30%,transparent 80%)}
+.cartel img.producto{width:100%;height:100%;object-fit:contain;background:#fff}
+.etiqueta-precio{position:absolute;left:6px;top:44px;background:var(--amarillo);color:var(--tinta);font-weight:900;letter-spacing:-0.05em;line-height:1;font-size:clamp(20px,6.2vw,38px);padding:.22em .34em .24em .74em;clip-path:polygon(.42em 0,100% 0,100% 100%,.42em 100%,0 50%);transform:rotate(-5deg);font-variant-numeric:tabular-nums;white-space:nowrap}
+.etiqueta-precio::before{content:"";position:absolute;left:.3em;top:50%;width:.2em;height:.2em;margin-top:-.1em;border-radius:50%;background:var(--tinta)}
+.pegatina-dto{position:absolute;right:8px;top:8px;width:clamp(44px,12vw,62px);aspect-ratio:1;border-radius:50%;background:var(--rojo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:clamp(13px,3.6vw,18px);letter-spacing:-0.04em;transform:rotate(12deg);border:2.5px solid var(--blanco);box-shadow:0 0 0 2.5px var(--tinta);z-index:2}
+.cartel .mascota{position:absolute;right:6%;bottom:-2%;height:50%;width:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5));transition:transform .25s}
+.tarjeta:hover .cartel .mascota{transform:rotate(-6deg) translateY(-6px)}
+.icono-cat{position:absolute;left:12px;bottom:12px;width:26%;color:var(--amarillo);opacity:.9}
+.chapa{position:absolute;top:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
+.chapa span{font-weight:900;font-size:12px;padding:2px 8px;border-radius:8px;line-height:1.5;border:2px solid var(--tinta)}
+.chapa .numero{background:var(--amarillo);color:var(--tinta);font-variant-numeric:tabular-nums}
+.chapa .nuevo{background:var(--rojo);color:#fff;border-color:var(--blanco)}
+.ej{display:inline-block;background:var(--tinta);color:var(--amarillo);font-size:10px;letter-spacing:.08em;padding:1px 6px;border-radius:5px;margin-left:4px;vertical-align:1px}
+.cuerpo{padding:12px 13px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.categoria{font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--gris)}
+.cuerpo h3{font-size:15.5px;line-height:1.25;margin:0;font-weight:800;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cuerpo h3 a{text-decoration:none}
+.cuerpo h3 a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.precios{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 8px;font-variant-numeric:tabular-nums}
+.precio{font-weight:900;font-size:24px;letter-spacing:-0.04em;line-height:1}
+.antes{color:var(--gris);text-decoration:line-through;text-decoration-color:var(--rojo);text-decoration-thickness:2px;font-size:14px;font-weight:600}
+.ahorro{font-size:13px;font-weight:800;color:var(--verde);margin:0}
+.boton{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:12px;background:var(--tinta);color:var(--amarillo);font-weight:900;text-decoration:none;font-size:15px;padding:0 10px;text-align:center;white-space:nowrap;border:2px solid var(--tinta);transition:transform .12s,box-shadow .12s}
+.boton svg{width:18px;height:18px;flex:0 0 auto}
+.boton:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--amarillo),3px 3px 0 2px var(--tinta)}
+.boton.pendiente{background:#EEEAD6;color:var(--gris);border-color:#D8D2B6;cursor:default;transform:none;box-shadow:none}
+.nota{font-size:11.5px;color:var(--gris);margin:0}
+.vacio{grid-column:1/-1;border:3px dashed var(--tinta);border-radius:20px;padding:28px 20px;text-align:center;background:var(--blanco);display:flex;flex-direction:column;align-items:center;gap:8px}
+.vacio img{height:120px;width:auto}
+@media (max-width:420px){.cuerpo{padding:10px 10px 12px}.cuerpo h3{font-size:14.5px}.precio{font-size:21px}.boton{font-size:14px;min-height:44px;padding:0 8px}.boton svg{width:15px;height:15px}}
+
+/* ---------- Consejos ---------- */
+.consejos{background:var(--tinta);color:var(--blanco);margin-top:34px;padding:40px 0 44px;border-top:var(--borde)}
+.consejos .titulo-seccion h2{color:var(--amarillo)}
+.consejos .titulo-seccion p{color:#CFCBB8}
+.lista-consejos{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:700px){.lista-consejos{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media (min-width:1040px){.lista-consejos{grid-template-columns:repeat(4,1fr)}}
+.consejo{position:relative;background:var(--amarillo);color:var(--tinta);border:3px solid var(--blanco);border-radius:20px;padding:16px 16px 16px 108px;min-height:140px;display:flex;flex-direction:column;justify-content:center;box-shadow:5px 5px 0 var(--blanco)}
+.consejo:nth-child(even){transform:rotate(.8deg)}
+.consejo:nth-child(odd){transform:rotate(-.6deg)}
+.consejo img{position:absolute;left:10px;bottom:10px;height:118px;width:auto}
+.consejo h3{margin:0 0 4px;font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1.15}
+.consejo p{margin:0;font-size:14.5px;font-weight:500}
+@media (min-width:1040px){.consejo{padding:130px 16px 18px;min-height:0;justify-content:flex-start}.consejo img{left:50%;transform:translateX(-50%);top:12px;bottom:auto;height:108px}}
+
+/* ---------- Redes ---------- */
+.redes-cta{padding:40px 0 48px}
+.caja-redes{position:relative;background:var(--amarillo);border:var(--borde);border-radius:28px;padding:24px 22px 0;display:grid;grid-template-columns:1fr;gap:4px;overflow:hidden;box-shadow:8px 8px 0 var(--tinta);isolation:isolate}
+.caja-redes::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(17,17,17,.12) 1.6px,transparent 1.8px);background-size:18px 18px;z-index:-1}
+.caja-redes h2{margin:0;font-size:clamp(28px,5.5vw,44px);font-weight:900;letter-spacing:-0.04em;line-height:1;max-width:14ch}
+.caja-redes p{margin:8px 0 16px;font-weight:600;max-width:40ch}
+.botones-redes{display:flex;flex-wrap:wrap;gap:10px}
+.botones-redes a{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 18px;border-radius:14px;background:var(--tinta);color:var(--amarillo);font-weight:900;text-decoration:none;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--blanco),3px 3px 0 2px var(--tinta)}
+.botones-redes a:hover{transform:translate(-1px,-1px)}
+.botones-redes svg{width:20px;height:20px}
+.caja-redes img{justify-self:center;height:220px;width:auto;margin-top:6px}
+@media (min-width:760px){.caja-redes{grid-template-columns:1fr auto;padding:40px 40px 0;align-items:end}.caja-redes .texto{padding-bottom:40px}.caja-redes img{height:290px}}
+
+/* ---------- Ficha ---------- */
+.ficha{padding:20px 0 30px}
+.volver{display:inline-flex;align-items:center;gap:6px;font-weight:900;text-decoration:none;margin-bottom:14px;min-height:44px}
 .volver:hover{text-decoration:underline}
-.ficha-caja{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px;background:var(--blanco);border:3px solid var(--tinta);border-radius:20px;box-shadow:6px 6px 0 var(--tinta);padding:20px}
-.ficha-caja .foto{border-radius:14px}
-.ficha-info{display:flex;flex-direction:column;gap:14px}
-.ficha-info h1{font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-0.03em;margin:0;text-wrap:balance}
-.ficha-info .precio{font-size:46px}
+.ficha-caja{display:grid;grid-template-columns:1fr;background:var(--blanco);border:var(--borde);border-radius:24px;box-shadow:8px 8px 0 var(--tinta);overflow:hidden}
+.ficha-caja .cartel{aspect-ratio:4/3}
+.ficha-caja .etiqueta-precio,.destacado .etiqueta-precio{font-size:clamp(40px,12vw,68px);left:14px;top:56px}
+.ficha-caja .pegatina-dto,.destacado .pegatina-dto{width:clamp(70px,18vw,96px);font-size:clamp(20px,5vw,26px);right:16px;top:16px}
+.ficha-caja .cartel .mascota,.destacado .cartel .mascota{height:62%}
+.ficha-info{display:flex;flex-direction:column;gap:14px;padding:22px}
+.ficha-info h1{font-size:clamp(26px,4.4vw,40px);line-height:1.08;letter-spacing:-0.035em;margin:0;text-wrap:balance;font-weight:900}
+.ficha-info .precio{font-size:50px}
 .ficha-info .descripcion{margin:0;font-size:17px;max-width:60ch}
-.ficha-info .boton{font-size:18px;min-height:56px;margin-top:6px}
+.ficha-info .boton{font-size:18px;min-height:58px;margin-top:4px}
+.envio{display:flex;gap:8px;align-items:flex-start;background:var(--crema);border:2px solid var(--tinta);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;margin:0}
+.envio svg{flex:0 0 auto;margin-top:1px}
+@media (min-width:800px){.ficha-caja{grid-template-columns:1fr 1fr}.ficha-caja .cartel{aspect-ratio:auto;min-height:480px;border-bottom:0;border-right:var(--borde)}.ficha-info{padding:40px}}
+.mas{padding-top:30px}
 
-.pie{background:var(--tinta);color:#ECE8DA;padding:32px 0 44px;font-size:14px}
+/* ---------- Pie ---------- */
+.pie{background:var(--tinta);color:#ECE8DA;padding:34px 0 46px;font-size:14px;border-top:var(--borde)}
 .pie .wrap{display:flex;flex-direction:column;gap:10px}
-.pie p{margin:0;max-width:70ch}
+.pie .logo{color:var(--blanco);margin-bottom:6px}
+.pie .logo .banda{background:var(--amarillo);color:var(--tinta)}
+.pie p{margin:0;max-width:72ch}
+.pie .legal{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:4px}
+.pie .legal a{font-weight:700;text-decoration:underline;text-underline-offset:3px;min-height:32px;display:inline-flex;align-items:center}
 .pie strong{color:var(--amarillo)}
 .pie a{color:var(--amarillo)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div class="cinta" aria-hidden="true">
+  <div class="pista">
+    <span>Precios de risa</span><span>Hallazgos nuevos cada día</span><span>Moda · Gadgets · Casa</span><span>Envío desde China: pide con margen</span><span>Mira siempre las fotos de los clientes</span>
+    <span>Precios de risa</span><span>Hallazgos nuevos cada día</span><span>Moda · Gadgets · Casa</span><span>Envío desde China: pide con margen</span><span>Mira siempre las fotos de los clientes</span>
+  </div>
+</div>
 <header class="cabecera">
   <div class="wrap">
-    <a class="logo" href="#chollos" aria-label="Precio Ridículo, ir al inicio">
-      <svg width="40" height="27" viewBox="0 0 120 80" aria-hidden="true" style="transform:rotate(-12deg)"><path d="M30 4 H110 A6 6 0 0 1 116 10 V70 A6 6 0 0 1 110 76 H30 L4 40 Z" fill="#111111"></path><circle cx="24" cy="40" r="7" fill="#FFD60A"></circle></svg>
+    <a class="logo" href="#chollos" aria-label="Precio Ridículo, ir a los chollos">
+      <svg width="36" height="24" viewBox="0 0 120 80" aria-hidden="true" style="transform:rotate(-12deg)"><path d="M30 4 H110 A6 6 0 0 1 116 10 V70 A6 6 0 0 1 110 76 H30 L4 40 Z" fill="#111111"></path><circle cx="24" cy="40" r="7" fill="#FFD60A"></circle></svg>
       <span>PRECIO</span><span class="banda">RIDÍCULO</span>
     </a>
-    <nav class="redes" aria-label="Redes sociales">
-      <a id="enlace-tiktok" href="https://www.tiktok.com/@precioridiculo">TikTok</a>
-      <a id="enlace-instagram" href="https://www.instagram.com/precioridiculo">Instagram</a>
+    <nav class="menu" aria-label="Menú">
+      <a href="#buscar" id="ir-buscar" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="texto">Buscar</span></a>
+      <a id="enlace-tiktok" href="https://www.tiktok.com/@precioridiculo" aria-label="TikTok de Precio Ridículo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2c-1.5.1-2.8-.3-4-1.1v6.2c0 3.6-2.6 5.8-5.7 5.8-3.3 0-5.6-2.6-5.4-5.6.2-3 2.8-5.3 6.1-4.9v3.3c-1.4-.3-2.8.5-2.9 1.8-.1 1.2.9 2.2 2.1 2.2 1.3 0 2.2-.9 2.2-2.4V3h3.6z"/></svg><span class="texto">TikTok</span></a>
+      <a id="enlace-instagram" href="https://www.instagram.com/precioridiculo" aria-label="Instagram de Precio Ridículo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span class="texto">Instagram</span></a>
     </nav>
   </div>
 </header>
@@ -112,23 +262,80 @@ img{max-width:100%}
   <section id="vista-lista">
     <div class="portada">
       <div class="wrap">
-        <h1>Cosas que parecen caras y no lo son</h1>
-        <p class="lema">Moda, gadgets y casa a precio de risa. Hallazgos nuevos cada día.</p>
-        <div class="buscador">
-          <label for="buscar">¿Vienes de un vídeo? Escribe su número o busca el producto</label>
-          <input id="buscar" type="search" placeholder="Ej.: 12 o sudadera" autocomplete="off">
+        <div>
+          <span class="sello">🛍️ Hallazgos de Ridi</span>
+          <h1>Cosas que parecen caras <span class="no">y no lo son</span></h1>
+          <p class="lema">Moda, gadgets y casa a precio de risa. Ridi los encuentra, tú te ríes del precio.</p>
+          <div class="buscador">
+            <label for="buscar">¿Vienes de un vídeo? Escribe su número</label>
+            <div class="campo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="buscar" type="search" placeholder="Ej.: 12 o sudadera" autocomplete="off" enterkeyhint="search">
+            </div>
+          </div>
+          <div class="datos" id="datos"></div>
         </div>
-        <p class="aviso-envio">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"></path><path d="M3 7.5 12 12l9-4.5M12 12v9"></path></svg>
-          Envío desde China: los pedidos tardan, pide con margen.
-        </p>
+        <div class="escena" aria-hidden="true">
+          <span class="sombra"></span>
+          <span class="bocadillo">¿¡A ESTE PRECIO!?</span>
+          <img class="ridi-grande" src="assets/web/ridi-3-risa.webp" alt="" width="329" height="560">
+        </div>
       </div>
     </div>
+
     <div class="wrap">
-      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría"></div>
-      <p class="estado" id="estado" aria-live="polite"></p>
-      <div class="rejilla" id="rejilla"></div>
+      <section class="seccion" id="bloque-destacado" aria-labelledby="titulo-destacado" hidden>
+        <div class="titulo-seccion"><h2 id="titulo-destacado">El precio <mark>más ridículo</mark> ahora</h2><p>El mayor descuento de la lista en este momento.</p></div>
+        <div id="destacado"></div>
+      </section>
+
+      <section class="seccion" id="chollos" aria-labelledby="titulo-chollos">
+        <div class="titulo-seccion"><h2 id="titulo-chollos">Todos los <mark>hallazgos</mark></h2><p>Precios de la fecha de cada oferta. Pueden cambiar.</p></div>
+        <div id="aviso-ejemplos"></div>
+        <div class="herramientas">
+          <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría"></div>
+          <div class="orden">
+            <p class="estado" id="estado" aria-live="polite"></p>
+            <label for="orden">Ordenar
+              <select id="orden">
+                <option value="nuevos">Más nuevos</option>
+                <option value="barato">Más baratos</option>
+                <option value="descuento">Mayor descuento</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="rejilla" id="rejilla"></div>
+      </section>
     </div>
+
+    <section class="consejos" id="consejos" aria-labelledby="titulo-consejos">
+      <div class="wrap">
+        <div class="titulo-seccion"><h2 id="titulo-consejos">Antes de comprar, Ridi te avisa</h2><p>Cuatro trucos para que lo barato no te salga caro.</p></div>
+        <div class="lista-consejos">
+          <article class="consejo"><img src="assets/web/ridi-7-sospecha.webp" alt="" loading="lazy" width="302" height="560"><h3>Mira las fotos de los clientes</h3><p>Las fotos reales dicen más que las de la tienda.</p></article>
+          <article class="consejo"><img src="assets/web/ridi-1-habla.webp" alt="" loading="lazy" width="447" height="560"><h3>Tallas en centímetros</h3><p>Compara la tabla de medidas con una prenda tuya.</p></article>
+          <article class="consejo"><img src="assets/web/ridi-4-senala.webp" alt="" loading="lazy" width="457" height="560"><h3>Mira el precio final</h3><p>Revisa el total con envío antes de pagar.</p></article>
+          <article class="consejo"><img src="assets/web/ridi-5-pulgar-guino.webp" alt="" loading="lazy" width="440" height="560"><h3>Pide con margen</h3><p>El envío desde China tarda: no lo dejes para el último día.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="redes-cta" aria-labelledby="titulo-redes">
+      <div class="wrap">
+        <div class="caja-redes">
+          <div class="texto">
+            <h2 id="titulo-redes">Ridi sube trucos y hallazgos cada día</h2>
+            <p>Síguelo para enterarte antes que nadie y no picar en las trampas.</p>
+            <div class="botones-redes">
+              <a href="https://www.tiktok.com/@precioridiculo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v3.2c-1.5.1-2.8-.3-4-1.1v6.2c0 3.6-2.6 5.8-5.7 5.8-3.3 0-5.6-2.6-5.4-5.6.2-3 2.8-5.3 6.1-4.9v3.3c-1.4-.3-2.8.5-2.9 1.8-.1 1.2.9 2.2 2.1 2.2 1.3 0 2.2-.9 2.2-2.4V3h3.6z"/></svg>TikTok</a>
+              <a href="https://www.instagram.com/precioridiculo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            </div>
+          </div>
+          <img src="assets/web/ridi-6-celebra.webp" alt="" loading="lazy" width="463" height="560">
+        </div>
+      </div>
+    </section>
   </section>
 
   <section id="vista-ficha" class="ficha" hidden>
@@ -138,10 +345,12 @@ img{max-width:100%}
 
 <footer class="pie">
   <div class="wrap">
+    <span class="logo"><span>PRECIO</span><span class="banda">RIDÍCULO</span></span>
     <p><strong>Enlaces de afiliado.</strong> Si compras a través de esta web, Precio Ridículo puede recibir una pequeña comisión, sin coste extra para ti.</p>
     <p>Los precios son los de la fecha indicada en cada oferta y pueden cambiar. El precio final y el envío son los que veas en la tienda.</p>
     <p>Esta web no vende ni envía productos y no es la tienda oficial de ninguna marca.</p>
-    <p>Titular: Adrián Méndez · NIF: 42264958C · Contacto: <a href="mailto:precioridiculo7@gmail.com">precioridiculo7@gmail.com</a></p>
+    <p>Titular: Adrián Viudez Méndez · NIF: 42264958C · Contacto: <a href="mailto:precioridiculo7@gmail.com">precioridiculo7@gmail.com</a></p>
+    <nav class="legal" aria-label="Textos legales"><a href="aviso-legal.html#aviso">Aviso legal</a><a href="aviso-legal.html#privacidad">Privacidad</a><a href="aviso-legal.html#cookies">Cookies</a></nav>
     <p>© 2026 Precio Ridículo</p>
   </div>
 </footer>
@@ -170,16 +379,17 @@ const OFERTAS = [
 ];
 
 // ================== MOTOR DE LA WEB (no hace falta tocarlo) ==================
-const TINTA = "#111111";
 const ICONOS = {
   "Moda": '<path d="M30 22 L44 14 Q50 22 56 14 L70 22 L82 36 L71 43 L66 38 V84 H34 V38 L29 43 L18 36 Z"/>',
   "Gadgets": '<path d="M56 10 L28 54 H48 L42 90 L72 44 H52 Z"/>',
   "Casa": '<path d="M16 50 L50 20 L84 50"/><path d="M27 42 V82 H73 V42"/><path d="M44 82 V62 H56 V82"/>'
 };
+const POSES = ["ridi-3-risa", "ridi-2-sorpresa", "ridi-4-senala", "ridi-5-pulgar-guino", "ridi-7-sospecha", "ridi-1-habla"];
 const fmtEuro = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" });
 let ofertas = [];
 let categoria = "Todo";
 let busqueda = "";
+let orden = "nuevos";
 
 const $ = id => document.getElementById(id);
 function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
@@ -190,76 +400,135 @@ function num(v){
   const n = parseFloat(s);
   return isNaN(n) ? null : n;
 }
-function fecha(d){
+function aFecha(d){
   // Acepta 20/11/2026 (como lo da la hoja de Google) o 2026-11-20
   const s = String(d || "").trim();
   let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/), f = null;
   if (m) f = new Date(+m[1], +m[2] - 1, +m[3], 12);
   else if ((m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/))) f = new Date(m[3].length === 2 ? 2000 + +m[3] : +m[3], +m[2] - 1, +m[1], 12);
-  return f && !isNaN(f) ? f.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" }) : "";
+  return f && !isNaN(f) ? f : null;
 }
+function fecha(d){ const f = aFecha(d); return f ? f.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" }) : ""; }
 function descuento(o){ return (o.precio && o.antes && o.antes > o.precio) ? Math.round((1 - o.precio / o.antes) * 100) : 0; }
+function ahorro(o){ return (o.precio && o.antes && o.antes > o.precio) ? o.antes - o.precio : 0; }
+function reales(){ return ofertas.filter(o => !o.ejemplo); }
+function esNueva(o){
+  if (o.ejemplo) return false;
+  const f = aFecha(o.fecha); if (!f) return false;
+  const ultima = Math.max(...reales().map(x => (aFecha(x.fecha) || 0).valueOf()));
+  return f.valueOf() === ultima && (Date.now() - f.valueOf()) < 3 * 864e5;
+}
+function pose(i){ return "assets/web/" + POSES[i % POSES.length] + ".webp"; }
 function icono(cat){
-  return '<div class="placeholder"><svg viewBox="0 0 100 100" fill="none" stroke="' + TINTA + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + (ICONOS[cat] || ICONOS[CONFIG.categorias[0]]) + '</svg></div>';
+  return '<svg class="icono-cat" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + (ICONOS[cat] || ICONOS[CONFIG.categorias[0]]) + '</svg>';
 }
-function foto(o){
-  const src = urlSegura(o.imagen);
-  return src ? '<img src="' + esc(src) + '" alt="" loading="lazy" data-cat="' + esc(o.categoria) + '">' : icono(o.categoria);
+function precioCorto(v){ return v == null ? "" : fmtEuro.format(v).replace(/\s/g, " "); }
+function cartel(o, i, poseFija){
+  const src = urlSegura(o.imagen), d = descuento(o);
+  const chapas = '<span class="chapa"><span class="numero">Nº ' + esc(o.numero) + '</span>' +
+    (esNueva(o) ? '<span class="nuevo">NUEVO</span>' : "") + '</span>';
+  const dto = d ? '<span class="pegatina-dto">-' + d + '%</span>' : "";
+  const fondo = src
+    ? '<img class="producto" src="' + esc(src) + '" alt="" loading="lazy" data-cat="' + esc(o.categoria) + '">'
+    : '<span class="etiqueta-precio">' + precioCorto(o.precio) + '</span>' + icono(o.categoria) +
+      '<img class="mascota" src="' + (poseFija || pose(i)) + '" alt="" loading="lazy">';
+  return fondo + dto + chapas;
 }
+function iconoFlecha(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>'; }
 function boton(o){
   const href = urlSegura(o.enlace);
   return href
-    ? '<a class="boton" href="' + esc(href) + '" target="_blank" rel="sponsored nofollow noopener">' + esc(CONFIG.textoBoton) + '</a>'
+    ? '<a class="boton" href="' + esc(href) + '" target="_blank" rel="sponsored nofollow noopener">' + esc(CONFIG.textoBoton) + iconoFlecha() + '</a>'
     : '<span class="boton pendiente">Enlace pendiente</span>';
 }
 function precios(o){
-  const d = descuento(o);
-  return '<div class="precios"><span class="precio">' + (o.precio != null ? fmtEuro.format(o.precio) : "") + '</span>' +
-    (o.antes ? '<span class="antes"><span class="oculto">Antes </span>' + fmtEuro.format(o.antes) + '</span>' : "") +
-    (d ? '<span class="descuento">-' + d + ' %</span>' : "") + '</div>';
+  return '<div class="precios"><span class="precio">' + precioCorto(o.precio) + '</span>' +
+    (o.antes ? '<span class="antes"><span class="oculto">Antes </span>' + precioCorto(o.antes) + '</span>' : "") + '</div>' +
+    (ahorro(o) >= 1 ? '<p class="ahorro">Te ahorras ' + precioCorto(ahorro(o)) + '</p>' : "");
 }
 function notaFecha(o){ const f = fecha(o.fecha); return f ? '<p class="nota">Precio a ' + f + '. Puede cambiar.</p>' : ""; }
 
-function tarjeta(o){
-  return '<article class="tarjeta">' +
-    '<a class="foto" href="#oferta-' + esc(o.numero) + '" tabindex="-1" aria-hidden="true">' + foto(o) +
-      '<span class="numero">#' + esc(o.numero) + '</span>' + (o.ejemplo ? '<span class="ejemplo">Ejemplo</span>' : "") + '</a>' +
-    '<div class="cuerpo"><h2><a href="#oferta-' + esc(o.numero) + '">' + esc(o.producto) + '</a></h2>' + precios(o) + notaFecha(o) + boton(o) + '</div>' +
+function tarjeta(o, i){
+  return '<article class="tarjeta" style="animation-delay:' + Math.min(i, 8) * 45 + 'ms">' +
+    '<a class="cartel" href="#oferta-' + esc(o.numero) + '" tabindex="-1" aria-hidden="true">' + cartel(o, i) + '</a>' +
+    '<div class="cuerpo"><span class="categoria">' + esc(o.categoria) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h3><a href="#oferta-' + esc(o.numero) + '">' + esc(o.producto) + '</a></h3>' + precios(o) + notaFecha(o) + boton(o) + '</div>' +
   '</article>';
 }
 
 function filtradas(){
   const t = busqueda.trim().toLowerCase().replace(/^#\s*/, "").replace(/^n[ºo°.]?\s*(?=\d)/, "");
-  return ofertas.filter(o => {
+  const lista = ofertas.filter(o => {
     if (categoria !== "Todo" && o.categoria !== categoria) return false;
     if (!t) return true;
     if (/^\d+$/.test(t)) return String(o.numero) === t;
     return (o.producto + " " + o.descripcion + " " + o.categoria).toLowerCase().includes(t);
   });
+  if (orden === "descuento") lista.sort((a, b) => descuento(b) - descuento(a) || (b.numero || 0) - (a.numero || 0));
+  else if (orden === "barato") lista.sort((a, b) => (a.precio ?? 1e9) - (b.precio ?? 1e9));
+  else lista.sort((a, b) => (b.numero || 0) - (a.numero || 0));
+  return lista;
+}
+function elDestacado(){
+  const conDto = reales().filter(o => descuento(o) > 0 && urlSegura(o.enlace));
+  if (!conDto.length) return null;
+  return conDto.slice().sort((a, b) => descuento(b) - descuento(a) || (b.numero || 0) - (a.numero || 0))[0];
 }
 
+function pintarDatos(){
+  const r = reales();
+  const datos = [];
+  if (r.length){
+    const maxDto = Math.max(0, ...r.map(descuento));
+    const minPrecio = Math.min(...r.map(o => o.precio ?? 1e9));
+    datos.push('<span class="dato"><b>' + r.length + '</b>' + (r.length === 1 ? "hallazgo" : "hallazgos") + '</span>');
+    if (minPrecio < 1e9) datos.push('<span class="dato">desde <b>' + precioCorto(minPrecio) + '</b></span>');
+    if (maxDto) datos.push('<span class="dato">hasta <b>-' + maxDto + ' %</b></span>');
+  } else {
+    datos.push('<span class="dato">👗 <b>Moda</b></span>', '<span class="dato">⚡ <b>Gadgets</b></span>', '<span class="dato">🏠 <b>Casa</b></span>');
+  }
+  $("datos").innerHTML = datos.join("");
+  $("aviso-ejemplos").innerHTML = r.length ? "" :
+    '<div class="aviso-ejemplos"><img src="assets/web/ridi-1-habla.webp" alt="" width="78" height="100"><span><strong>Ridi está preparando los primeros hallazgos.</strong>Mientras tanto, estos ejemplos te enseñan cómo se verán.</span></div>';
+}
+function pintarDestacado(){
+  const top = elDestacado();
+  const visible = top && !busqueda.trim() && categoria === "Todo";
+  $("bloque-destacado").hidden = !visible;
+  if (!visible) return;
+  $("destacado").innerHTML = '<article class="destacado">' +
+    '<a class="cartel" href="#oferta-' + esc(top.numero) + '" tabindex="-1" aria-hidden="true">' + cartel(top, 0, "assets/web/ridi-2-sorpresa.webp") + '</a>' +
+    '<div class="info"><span class="categoria">' + esc(top.categoria) + ' · Nº ' + esc(top.numero) + '</span>' +
+      '<h3><a href="#oferta-' + esc(top.numero) + '">' + esc(top.producto) + '</a></h3>' +
+      (top.descripcion ? '<p class="descripcion">' + esc(top.descripcion) + '</p>' : "") +
+      precios(top) + boton(top) + notaFecha(top) + '</div></article>';
+}
 function pintarFiltros(){
   const cats = ["Todo"].concat(CONFIG.categorias);
-  $("filtros").innerHTML = cats.map(c => '<button type="button" aria-pressed="' + (c === categoria) + '" data-cat="' + esc(c) + '">' + esc(c) + '</button>').join("");
+  $("filtros").innerHTML = cats.map(c => '<button type="button" aria-pressed="' + (c === categoria) + '" data-cat="' + esc(c) + '">' +
+    (ICONOS[c] ? '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + ICONOS[c] + '</svg>' : "") + esc(c) + '</button>').join("");
 }
 function pintarLista(){
   const lista = filtradas();
-  $("estado").textContent = lista.length === 1 ? "1 chollo" : lista.length + " chollos";
+  $("estado").textContent = lista.length === 1 ? "1 hallazgo" : lista.length + " hallazgos";
   $("rejilla").innerHTML = lista.length
     ? lista.map(tarjeta).join("")
-    : '<div class="vacio"><strong>Ningún chollo coincide.</strong><br>Prueba con otro número o con otra palabra.</div>';
+    : '<div class="vacio"><img src="assets/web/ridi-7-sospecha.webp" alt="" width="216" height="400"><strong>Ninguna oferta coincide.</strong><span>Prueba con otro número o con otra palabra.</span></div>';
+  pintarDestacado();
 }
 function pintarFicha(o){
+  const otras = ofertas.filter(x => x !== o).sort((a, b) => (b.numero || 0) - (a.numero || 0)).slice(0, 4);
   $("ficha").innerHTML =
-    '<a class="volver" href="#chollos">← Todos los chollos</a>' +
+    '<a class="volver" href="#chollos">← Todos los hallazgos</a>' +
     '<div class="ficha-caja">' +
-      '<div class="foto">' + foto(o) + '<span class="numero">#' + esc(o.numero) + '</span>' + (o.ejemplo ? '<span class="ejemplo">Ejemplo</span>' : "") + '</div>' +
-      '<div class="ficha-info"><h1>' + esc(o.producto) + '</h1>' + precios(o) +
+      '<div class="cartel">' + cartel(o, 0, "assets/web/ridi-2-sorpresa.webp") + '</div>' +
+      '<div class="ficha-info"><span class="categoria">' + esc(o.categoria) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h1>' + esc(o.producto) + '</h1>' + precios(o) +
         (o.descripcion ? '<p class="descripcion">' + esc(o.descripcion) + '</p>' : "") +
         boton(o) + notaFecha(o) +
-        '<p class="nota">Envío desde China: pide con margen. Enlace de afiliado: si compras, me llevo una pequeña comisión y a ti te cuesta lo mismo.</p>' +
+        '<p class="envio"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"></path><path d="M3 7.5 12 12l9-4.5M12 12v9"></path></svg>Envío desde China: los pedidos tardan, pide con margen.</p>' +
+        '<p class="nota">Enlace de afiliado: si compras, Precio Ridículo puede recibir una pequeña comisión, sin coste extra para ti.</p>' +
       '</div>' +
-    '</div>';
+    '</div>' +
+    (otras.length ? '<div class="mas"><div class="titulo-seccion"><h2>Más <mark>hallazgos</mark></h2></div><div class="rejilla">' + otras.map(tarjeta).join("") + '</div></div>' : "");
   document.title = o.producto + " · Precio Ridículo";
 }
 function ruta(){
@@ -270,8 +539,11 @@ function ruta(){
     $("vista-lista").hidden = true; $("vista-ficha").hidden = false;
     window.scrollTo(0, 0);
   } else {
-    document.title = "Precio Ridículo";
+    document.title = "Precio Ridículo · Cosas que parecen caras y no lo son";
+    const estabaOculta = $("vista-lista").hidden;
     $("vista-ficha").hidden = true; $("vista-lista").hidden = false;
+    const destino = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (estabaOculta && destino) destino.scrollIntoView();
   }
 }
 
@@ -301,13 +573,20 @@ function desdeCSV(txt){
 
 document.addEventListener("error", e => {
   const img = e.target;
-  if (img && img.tagName === "IMG" && img.dataset.cat !== undefined){ img.outerHTML = icono(img.dataset.cat); }
+  if (img && img.tagName === "IMG" && img.classList.contains("producto")){ img.outerHTML = icono(img.dataset.cat); }
 }, true);
 $("filtros").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   categoria = b.dataset.cat; pintarFiltros(); pintarLista();
 });
 $("buscar").addEventListener("input", e => { busqueda = e.target.value; pintarLista(); });
+$("buscar").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); $("chollos").scrollIntoView(); } });
+$("orden").addEventListener("change", e => { orden = e.target.value; pintarLista(); });
+$("ir-buscar").addEventListener("click", e => {
+  e.preventDefault();
+  if ($("vista-lista").hidden) location.hash = "#chollos";
+  setTimeout(() => { $("buscar").scrollIntoView({ block: "center" }); $("buscar").focus(); }, 60);
+});
 window.addEventListener("hashchange", ruta);
 
 (async function iniciar(){
@@ -319,7 +598,7 @@ window.addEventListener("hashchange", ruta);
     } catch (err) { /* si la hoja falla, se quedan las ofertas de la lista */ }
   }
   ofertas.sort((a, b) => (b.numero || 0) - (a.numero || 0));
-  pintarFiltros(); pintarLista(); ruta();
+  pintarDatos(); pintarFiltros(); pintarLista(); ruta();
 })();
 </script>
 </body>
