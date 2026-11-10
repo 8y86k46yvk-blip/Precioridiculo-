@@ -441,7 +441,7 @@ function cartel(o, i, poseFija){
   const dto = d ? '<span class="pegatina-dto">-' + d + '%</span>' : "";
   const fondo = src
     ? '<img class="producto" src="' + esc(src) + '" alt="" loading="lazy" data-cat="' + esc(o.categoria) + '">'
-    : '<span class="etiqueta-precio">' + precioCorto(o.precio) + '</span>' + icono(o.categoria) +
+    : '<span class="etiqueta-precio">' + (o.aprox ? "≈" : "") + precioCorto(o.precio) + '</span>' + icono(o.categoria) +
       '<img class="mascota" src="' + (poseFija || pose(i)) + '" alt="" loading="lazy">';
   return fondo + dto + chapas;
 }
