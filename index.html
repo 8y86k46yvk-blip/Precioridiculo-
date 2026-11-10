@@ -161,6 +161,8 @@ button{font:inherit}
 .chapa span{font-weight:900;font-size:12px;padding:2px 8px;border-radius:8px;line-height:1.5;border:2px solid var(--tinta)}
 .chapa .numero{background:var(--amarillo);color:var(--tinta);font-variant-numeric:tabular-nums}
 .chapa .nuevo{background:var(--rojo);color:#fff;border-color:var(--blanco)}
+.tienda{display:inline-block;background:var(--amarillo);color:var(--tinta);font-size:10px;letter-spacing:.06em;padding:1px 6px;border-radius:5px;margin-left:6px;vertical-align:1px}
+.aprox{font-size:.62em;margin-right:2px;vertical-align:.18em;opacity:.8}
 .ej{display:inline-block;background:var(--tinta);color:var(--amarillo);font-size:10px;letter-spacing:.08em;padding:1px 6px;border-radius:5px;margin-left:4px;vertical-align:1px}
 .cuerpo{padding:12px 13px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .categoria{font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--gris)}
@@ -369,13 +371,14 @@ const CONFIG = {
   // Opcional: enlace CSV de tu hoja de Google publicada en la web.
   // Si lo dejas vacío, la web usa la lista OFERTAS de abajo.
   hojaCSV: "",
-  textoBoton: "Ver en Hacoo",
+  textoBoton: "Ver oferta",   // si la oferta lleva «tienda», el botón dice «Ver en <tienda>»
   categorias: ["Moda", "Gadgets", "Casa"]
 };
 
 // ================== OFERTAS ==================
 // numero: el número que sale en el vídeo · precio y antes: en euros
 // enlace: tu enlace de afiliado de Admitad · imagen: URL de la foto · fecha: AAAA-MM-DD
+// tienda: "AliExpress" o "Hacoo" · aprox: true si el precio viene de dólares (sale con ≈ y la nota de aproximado)
 // Borra las de ejemplo cuando pongas las tuyas.
 const OFERTAS = [
   { numero: 6, producto: "Lámpara de noche táctil", categoria: "Casa", precio: 4.79, antes: 16.99, descripcion: "Se enciende tocándola y tiene tres intensidades de luz. Queda muy bien en la mesilla.", enlace: "", imagen: "", fecha: "2026-11-09", ejemplo: true },
@@ -443,23 +446,30 @@ function cartel(o, i, poseFija){
   return fondo + dto + chapas;
 }
 function iconoFlecha(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>'; }
+function tienda(o){ return String(o.tienda || "").trim(); }
+function textoBoton(o){ return tienda(o) ? "Ver en " + tienda(o) : CONFIG.textoBoton; }
+function etiquetaCat(o){ return esc(o.categoria) + (tienda(o) ? '<span class="tienda">' + esc(tienda(o)) + '</span>' : ""); }
 function boton(o){
   const href = urlSegura(o.enlace);
   return href
-    ? '<a class="boton" href="' + esc(href) + '" target="_blank" rel="sponsored nofollow noopener">' + esc(CONFIG.textoBoton) + iconoFlecha() + '</a>'
+    ? '<a class="boton" href="' + esc(href) + '" target="_blank" rel="sponsored nofollow noopener">' + esc(textoBoton(o)) + iconoFlecha() + '</a>'
     : '<span class="boton pendiente">Enlace pendiente</span>';
 }
 function precios(o){
-  return '<div class="precios"><span class="precio">' + precioCorto(o.precio) + '</span>' +
+  return '<div class="precios"><span class="precio">' + (o.aprox ? '<span class="aprox" title="Precio aproximado">≈</span>' : "") + precioCorto(o.precio) + '</span>' +
     (o.antes ? '<span class="antes"><span class="oculto">Antes </span>' + precioCorto(o.antes) + '</span>' : "") + '</div>' +
     (ahorro(o) >= 1 ? '<p class="ahorro">Te ahorras ' + precioCorto(ahorro(o)) + '</p>' : "");
 }
-function notaFecha(o){ const f = fecha(o.fecha); return f ? '<p class="nota">Precio a ' + f + '. Puede cambiar.</p>' : ""; }
+function notaFecha(o){
+  const f = fecha(o.fecha);
+  if (o.aprox) return '<p class="nota">Precio aproximado' + (f ? " del " + f : "") + ', pasado de dólares. El precio final lo ves en ' + esc(tienda(o) || "la tienda") + '.</p>';
+  return f ? '<p class="nota">Precio a ' + f + '. Puede cambiar.</p>' : "";
+}
 
 function tarjeta(o, i){
   return '<article class="tarjeta" style="animation-delay:' + Math.min(i, 8) * 45 + 'ms">' +
     '<a class="cartel" href="#oferta-' + esc(o.numero) + '" tabindex="-1" aria-hidden="true">' + cartel(o, i) + '</a>' +
-    '<div class="cuerpo"><span class="categoria">' + esc(o.categoria) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h3><a href="#oferta-' + esc(o.numero) + '">' + esc(o.producto) + '</a></h3>' + precios(o) + notaFecha(o) + boton(o) + '</div>' +
+    '<div class="cuerpo"><span class="categoria">' + etiquetaCat(o) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h3><a href="#oferta-' + esc(o.numero) + '">' + esc(o.producto) + '</a></h3>' + precios(o) + notaFecha(o) + boton(o) + '</div>' +
   '</article>';
 }
 
@@ -469,7 +479,7 @@ function filtradas(){
     if (categoria !== "Todo" && o.categoria !== categoria) return false;
     if (!t) return true;
     if (/^\d+$/.test(t)) return String(o.numero) === t;
-    return (o.producto + " " + o.descripcion + " " + o.categoria).toLowerCase().includes(t);
+    return (o.producto + " " + o.descripcion + " " + o.categoria + " " + tienda(o)).toLowerCase().includes(t);
   });
   if (orden === "descuento") lista.sort((a, b) => descuento(b) - descuento(a) || (b.numero || 0) - (a.numero || 0));
   else if (orden === "barato") lista.sort((a, b) => (a.precio ?? 1e9) - (b.precio ?? 1e9));
@@ -505,7 +515,7 @@ function pintarDestacado(){
   if (!visible) return;
   $("destacado").innerHTML = '<article class="destacado">' +
     '<a class="cartel" href="#oferta-' + esc(top.numero) + '" tabindex="-1" aria-hidden="true">' + cartel(top, 0, "assets/web/ridi-2-sorpresa.webp") + '</a>' +
-    '<div class="info"><span class="categoria">' + esc(top.categoria) + ' · Nº ' + esc(top.numero) + '</span>' +
+    '<div class="info"><span class="categoria">' + etiquetaCat(top) + ' · Nº ' + esc(top.numero) + '</span>' +
       '<h3><a href="#oferta-' + esc(top.numero) + '">' + esc(top.producto) + '</a></h3>' +
       (top.descripcion ? '<p class="descripcion">' + esc(top.descripcion) + '</p>' : "") +
       precios(top) + boton(top) + notaFecha(top) + '</div></article>';
@@ -529,7 +539,7 @@ function pintarFicha(o){
     '<a class="volver" href="#chollos">← Todos los hallazgos</a>' +
     '<div class="ficha-caja">' +
       '<div class="cartel">' + cartel(o, 0, "assets/web/ridi-2-sorpresa.webp") + '</div>' +
-      '<div class="ficha-info"><span class="categoria">' + esc(o.categoria) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h1>' + esc(o.producto) + '</h1>' + precios(o) +
+      '<div class="ficha-info"><span class="categoria">' + etiquetaCat(o) + (o.ejemplo ? '<span class="ej">EJEMPLO</span>' : "") + '</span><h1>' + esc(o.producto) + '</h1>' + precios(o) +
         (o.descripcion ? '<p class="descripcion">' + esc(o.descripcion) + '</p>' : "") +
         boton(o) + notaFecha(o) +
         '<p class="envio"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"></path><path d="M3 7.5 12 12l9-4.5M12 12v9"></path></svg>Envío desde China: los pedidos tardan, pide con margen.</p>' +
@@ -575,7 +585,8 @@ function desdeCSV(txt){
   return filas.filter(f => f.some(c => c.trim())).map(f => {
     const r = {}; claves.forEach((k, i) => r[k] = (f[i] || "").trim());
     return { numero: num(r.numero) || 0, producto: r.producto || "", categoria: r.categoria || "", precio: num(r.precio), antes: num(r.precio_antes || r.antes),
-      descripcion: r.descripcion || "", enlace: r.enlace || "", imagen: r.imagen || "", fecha: r.fecha || "" };
+      descripcion: r.descripcion || "", enlace: r.enlace || "", imagen: r.imagen || "", fecha: r.fecha || "",
+      tienda: r.tienda || "", aprox: /^(si|sí|true|1)$/i.test(r.aprox || "") };
   }).filter(o => o.producto);
 }
 
