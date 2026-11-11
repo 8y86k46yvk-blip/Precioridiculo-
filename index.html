@@ -240,6 +240,7 @@ button{font:inherit}
 .pie strong{color:var(--amarillo)}
 .pie a{color:var(--amarillo)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.aviso-1111{display:flex;gap:14px;align-items:center;margin:20px 0 4px;padding:14px 16px;border-radius:18px;background:var(--tinta);color:var(--blanco);text-decoration:none;border:var(--borde);box-shadow:var(--sombra)}.aviso-1111[hidden]{display:none}.aviso-1111 .n1111{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:86px;height:58px;padding:0 10px;border-radius:14px;background:var(--rojo);color:var(--blanco);font-weight:900;font-size:26px;letter-spacing:-0.03em;transform:rotate(-4deg)}.aviso-1111 .t1111{flex:1;font-size:14.5px;line-height:1.35;font-weight:600}.aviso-1111 strong{display:block;font-size:17px;font-weight:900;margin-bottom:2px;color:var(--amarillo)}.aviso-1111 .b1111{flex:0 0 auto;background:var(--amarillo);color:var(--tinta);font-weight:900;border-radius:12px;padding:10px 16px;white-space:nowrap}@media (max-width:520px){.aviso-1111{flex-wrap:wrap}.aviso-1111 .t1111{flex:1 1 55%}.aviso-1111 .b1111{flex:1 1 100%;text-align:center}}
 .aviso-tg{display:flex;gap:14px;align-items:center;margin:22px 0 6px;padding:14px 16px;border-radius:18px;background:var(--blanco);color:var(--tinta);text-decoration:none;border:var(--borde);box-shadow:var(--sombra)}.aviso-tg img{height:88px;width:auto;flex:0 0 auto}.aviso-tg .tg-texto{flex:1;font-size:14.5px;line-height:1.35;font-weight:600}.aviso-tg strong{display:block;font-size:17px;font-weight:900;margin-bottom:2px}.aviso-tg .tg-boton{display:inline-flex;align-items:center;gap:6px;background:var(--tinta);color:var(--amarillo);font-weight:900;border-radius:12px;padding:10px 16px;white-space:nowrap}.aviso-tg .tg-boton svg{width:18px;height:18px}@media (max-width:520px){.aviso-tg{flex-wrap:wrap}.aviso-tg .tg-texto{flex:1 1 60%}.aviso-tg .tg-boton{flex:1 1 100%;justify-content:center}}
 </style>
 <!-- Contador de visitas de Metricool (sin cookies) -->
@@ -292,6 +293,7 @@ button{font:inherit}
     </div>
 
     <div class="wrap">
+      <a class="aviso-1111" id="aviso-1111" href="/11-11/" hidden><span class="n1111">11.11</span><span class="t1111"><strong>Especial 11.11 de AliExpress</strong>Lo más rebajado de hoy, todo junto. Hasta el 18 de noviembre.</span><span class="b1111">Ver el especial →</span></a>
       <section class="seccion" id="bloque-destacado" aria-labelledby="titulo-destacado" hidden>
         <div class="titulo-seccion"><h2 id="titulo-destacado">El precio <mark>más ridículo</mark> ahora</h2><p>El mayor descuento de la lista en este momento.</p></div>
         <div id="destacado"></div>
@@ -645,6 +647,12 @@ window.addEventListener("hashchange", ruta);
   ofertas.sort((a, b) => (b.numero || 0) - (a.numero || 0));
   pintarDatos(); pintarFiltros(); pintarLista(); ruta();
 })();
+</script>
+<script>
+// Especial 11.11 de AliExpress: el aviso de la portada sale solo hasta el 18 de noviembre (hora de Canarias)
+(function () { var el = document.getElementById('aviso-1111'); if (!el) return;
+  try { var hoy = new Intl.DateTimeFormat('en-CA', { timeZone: 'Atlantic/Canary' }).format(new Date());
+    if (hoy <= '2026-11-18') el.hidden = false; } catch (e) {} })();
 </script>
 </body>
 </html>

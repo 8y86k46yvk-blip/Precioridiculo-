@@ -7,6 +7,8 @@ Lee CONFIG, OFERTAS e ICONOS de index.html (con node) y escribe:
   ofertas/<categoría>/index.html            (una por categoría de CONFIG: moda, gadgets, casa)
   ofertas/menos-de-3-euros/, ofertas/menos-de-5-euros/, ofertas/menos-de-10-euros/
   ofertas/<tienda>/index.html               (aliexpress y hacoo)
+  11-11/index.html                          (especial 11.11 de AliExpress hasta el 18 nov 2026; después, aviso de fin)
+  cupones/index.html                        (cupones de cupones.json, si hay alguno en vigor)
   assets/web/estilo.css                     (los estilos de index.html, para estas páginas)
   sitemap.xml y robots.txt
 No toca index.html. Lo ejecuta la tarea diaria «Ofertas diarias Precio Ridículo» después de cambiar OFERTAS.
@@ -30,6 +32,8 @@ POSES = ["ridi-5-pulgar-guino", "ridi-2-sorpresa", "ridi-4-senala", "ridi-7-sosp
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre",
          "diciembre"]
 TIENDAS = ["AliExpress", "Hacoo"]
+FIN_1111 = datetime.date(2026, 11, 18)   # el 11.11 de AliExpress dura hasta el 18 de noviembre a las 23:59
+MENU_EXTRA = []                          # enlaces de temporada en la cabecera (los pone main)
 
 # Textos propios de cada sección (para Google y para quien llega)
 TEXTOS = {
@@ -163,14 +167,70 @@ TEXTO_RIDI = ('<section class="mas-info"><h2>Cómo elige Ridi los hallazgos</h2>
               'Busca el número en <a href="/">elprecioridiculo.com</a>.</p></section>')
 
 
+def leer_cupones(hoy):
+    """Cupones en vigor de cupones.json (lo escribe la tarea diaria de ofertas). Sin archivo: lista vacía."""
+    try:
+        datos = json.loads((RAIZ / "cupones.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    lista = []
+    for c in datos.get("cupones", []):
+        if not url_segura(c.get("enlace")) or not str(c.get("titulo") or "").strip():
+            continue
+        try:
+            if c.get("hasta") and datetime.date.fromisoformat(str(c["hasta"])[:10]) < hoy:
+                continue
+            if c.get("desde") and datetime.date.fromisoformat(str(c["desde"])[:10]) > hoy:
+                continue
+        except ValueError:
+            continue
+        lista.append(c)
+    return lista
+
+
+def tarjeta_cupon(c):
+    codigo = str(c.get("codigo") or "").strip()
+    detalle = []
+    if c.get("minimo"):
+        m = c["minimo"]
+        detalle.append(f"Compra mínima: {euros(m) if isinstance(m, (int, float)) else E(m)}")
+    if c.get("hasta"):
+        try:
+            detalle.append(f"Hasta el {fecha_larga(datetime.date.fromisoformat(str(c['hasta'])[:10]))}")
+        except ValueError:
+            pass
+    if c.get("condiciones"):
+        detalle.append(E(c["condiciones"]))
+    tienda = str(c.get("tienda") or "AliExpress").strip()
+    if codigo:
+        bloque = (f'<div class="codigo"><code>{E(codigo)}</code><button class="copiar" type="button" '
+                  f'data-codigo="{E(codigo)}">Copiar</button></div>')
+    else:
+        bloque = '<p class="sin-codigo">Sin código: el descuento se aplica al entrar desde el botón.</p>'
+    cantidad = f'<span class="cantidad">{E(c["descuento"])}</span>' if c.get("descuento") else ""
+    return (f'<article class="cupon">{cantidad}<h3>{E(c["titulo"])}</h3>'
+            + (f'<p class="detalle">{" · ".join(detalle)}</p>' if detalle else "") + bloque
+            + f'<a class="boton" href="{E(c["enlace"])}" target="_blank" rel="sponsored nofollow noopener">'
+              f'Ir a {E(tienda)}{FLECHA}</a></article>')
+
+
+COPIAR = ("<script>document.querySelectorAll('.copiar').forEach(function(b){b.addEventListener('click',function(){"
+          "var c=b.getAttribute('data-codigo');function ok(){b.textContent='¡Copiado!';setTimeout(function(){"
+          "b.textContent='Copiar'},1800)}if(navigator.clipboard){navigator.clipboard.writeText(c).then(ok,function(){})}"
+          "else{var t=document.createElement('textarea');t.value=c;document.body.appendChild(t);t.select();"
+          "try{document.execCommand('copy');ok()}catch(e){}t.remove()}})})</script>")
+
+
 def pie(index):
     m = re.search(r'<footer class="pie">[\s\S]*?</footer>', index)
     t = m.group(0) if m else ""
     return t.replace('href="aviso-legal.html', 'href="/aviso-legal.html')
 
 
-def pagina(index, ruta, titulo, descripcion, cabeza, cuerpo, actual=None, enlaces=None):
+def pagina(index, ruta, titulo, descripcion, cabeza, cuerpo, actual=None, enlaces=None, noindex=False):
     url = f"{DOMINIO}/{ruta}"
+    menu_extra = "".join(f'<a class="temporada" href="/{r}">{E(t)}</a>' for r, t in MENU_EXTRA)
+    robots = '\n<meta name="robots" content="noindex">' if noindex else ""
     nav = ""
     if enlaces:
         marca = ' aria-current="page"'
@@ -183,7 +243,7 @@ def pagina(index, ruta, titulo, descripcion, cabeza, cuerpo, actual=None, enlace
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{E(titulo)}</title>
 <meta name="description" content="{E(descripcion)}">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{url}">{robots}
 <meta name="theme-color" content="#FFD60A">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{E(titulo)}">
@@ -201,7 +261,7 @@ def pagina(index, ruta, titulo, descripcion, cabeza, cuerpo, actual=None, enlace
 <header class="cabecera">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Precio Ridículo, ir al inicio">{LOGO}</a>
-    <nav class="menu menu-texto" aria-label="Menú"><a href="/">Inicio</a><a href="/ofertas/">Secciones</a></nav>
+    <nav class="menu menu-texto" aria-label="Menú"><a href="/">Inicio</a>{menu_extra}<a href="/ofertas/">Secciones</a></nav>
   </div>
 </header>
 <main>
@@ -238,6 +298,23 @@ html,body{overflow-x:hidden}
 .indice-cat a{display:flex;flex-direction:column;gap:2px;padding:16px;border-radius:18px;background:var(--blanco);border:var(--borde);box-shadow:var(--sombra);text-decoration:none;font-weight:900;font-size:17px;color:var(--tinta)}
 .indice-cat a small{font-weight:600;font-size:13px;color:var(--gris)}
 .aviso-tg{margin-bottom:34px}
+/* ---------- Especial 11.11 y cupones ---------- */
+.cabeza-1111{background:var(--tinta);color:var(--blanco)}
+.cabeza-1111 .migas,.cabeza-1111 .migas a{color:var(--blanco)}
+.cabeza-1111 h1 mark{background:var(--rojo);color:var(--blanco);padding:0 .12em;border-radius:6px}
+.cabeza-1111 .actualizado{color:var(--amarillo)}
+@media (max-width:520px){.menu-texto a.temporada{display:none}}
+.pasos{margin:6px 0 0;padding-left:20px}.pasos li{margin:0 0 4px}
+.cupones{display:grid;grid-template-columns:1fr;gap:14px;padding:16px 0 10px}
+@media (min-width:760px){.cupones{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cupon{display:flex;flex-direction:column;gap:8px;background:var(--blanco);border:var(--borde);border-radius:18px;padding:16px 18px;box-shadow:var(--sombra)}
+.cupon .cantidad{font-weight:900;font-size:30px;line-height:1;letter-spacing:-0.03em;color:var(--rojo)}
+.cupon h3{margin:0;font-size:17px;font-weight:900;letter-spacing:-0.01em}
+.cupon .detalle{margin:0;font-size:14px;color:var(--gris);font-weight:600}
+.cupon .codigo{display:flex;gap:8px;align-items:stretch}
+.cupon .codigo code{flex:1;display:flex;align-items:center;justify-content:center;min-height:46px;border:2px dashed var(--tinta);border-radius:12px;background:var(--crema);font:900 19px/1 var(--texto);letter-spacing:.06em}
+.cupon .copiar{flex:0 0 auto;min-height:46px;padding:0 14px;border-radius:12px;border:2px solid var(--tinta);background:var(--amarillo);font:800 14px/1 var(--texto);cursor:pointer}
+.cupon .sin-codigo{margin:0;font-size:14px;font-weight:700}
 """
 
 
@@ -258,7 +335,13 @@ def main():
 
     topes = (3, 5, 10)
     tiendas = [t for t in TIENDAS if any(str(o.get("tienda", "")).lower() == t.lower() for o in ofertas)]
-    enlaces = ([(f"ofertas/{slug(c)}/", c) for c in categorias] + [(f"ofertas/menos-de-{t}-euros/", f"Menos de {t} €") for t in topes]
+    ali = [o for o in ofertas if str(o.get("tienda", "")).lower() == "aliexpress"]
+    campana = hoy <= FIN_1111 and bool(ali)
+    cupones = leer_cupones(hoy)
+    temporada = ([("11-11/", "11.11")] if campana else []) + ([("cupones/", "Cupones")] if cupones else [])
+    MENU_EXTRA[:] = temporada
+    enlaces = (temporada + [(f"ofertas/{slug(c)}/", c) for c in categorias]
+               + [(f"ofertas/menos-de-{t}-euros/", f"Menos de {t} €") for t in topes]
                + [(f"ofertas/{slug(t)}/", t) for t in tiendas])
     paginas = []
 
@@ -301,11 +384,57 @@ def main():
         escribir(ruta, pagina(index, ruta, f"{h1} · Precio Ridículo", intro, cabeza,
                               rejilla(lista, iconos, categorias, f"Hoy no hay hallazgos de {t}.") + TEXTO_RIDI, ruta, enlaces))
 
+    # Especial 11.11 de AliExpress (hasta el 18 de noviembre)
+    if campana:
+        lista = sorted(ali, key=lambda o: (-dto(o), o.get("precio") or 0))
+        cupon_txt = (' Y antes de pagar, mira <a href="/cupones/">los cupones del 11.11</a>.' if cupones else "")
+        cabeza = ('<p class="migas"><a href="/">Inicio</a> › Especial 11.11</p>'
+                  '<h1>El 11.11 de AliExpress a <mark>precio ridículo</mark></h1>'
+                  '<p>El 11.11 de AliExpress dura hasta el 18 de noviembre a las 23:59. Ridi ha juntado aquí los hallazgos '
+                  f'de hoy con más descuento, del más rebajado al que menos.{cupon_txt}</p>'
+                  + actualizado.format(n=cuantos(len(lista))))
+        consejos = ('<section class="mas-info"><h2>Cómo sacarle partido al 11.11</h2><ol class="pasos">'
+                    '<li>Mira el precio final en AliExpress: aquí sale pasado de dólares a euros (≈).</li>'
+                    '<li>Si hay un cupón con compra mínima, junta varias cosas baratas para llegar.</li>'
+                    '<li>Pide con margen: muchos envíos salen de China y tardan.</li></ol></section>')
+        escribir("11-11/", pagina(index, "11-11/", "11.11 de AliExpress: lo más rebajado de hoy · Precio Ridículo",
+                                  "Lo más rebajado del 11.11 de AliExpress, elegido por Ridi cada día hasta el 18 de noviembre.",
+                                  cabeza, rejilla(lista, iconos, categorias, "Hoy no hay hallazgos de AliExpress.") + consejos,
+                                  "11-11/", enlaces).replace('<div class="cabeza-cat">', '<div class="cabeza-cat cabeza-1111">', 1))
+    elif (RAIZ / "11-11/index.html").exists() or hoy > FIN_1111:
+        destino = RAIZ / "11-11/index.html"
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        cabeza = ('<p class="migas"><a href="/">Inicio</a> › Especial 11.11</p><h1>El 11.11 ya ha terminado</h1>'
+                  '<p>La campaña del 11.11 de AliExpress acabó el 18 de noviembre. Ridi sigue buscando hallazgos cada mañana.</p>')
+        destino.write_text(pagina(index, "11-11/", "El 11.11 ha terminado · Precio Ridículo",
+                                  "El 11.11 de AliExpress ha terminado. Mira los hallazgos de hoy en Precio Ridículo.",
+                                  cabeza, rejilla([], iconos, categorias, "El 11.11 ya ha terminado."), noindex=True),
+                           encoding="utf-8")
+
+    # Cupones (de cupones.json)
+    if cupones:
+        cabeza = ('<p class="migas"><a href="/">Inicio</a> › Cupones</p><h1>Cupones de descuento a precio ridículo</h1>'
+                  '<p>Códigos para AliExpress que se ponen al pagar. Copia el código, entra desde el botón y escríbelo en '
+                  'la casilla del cupón. Mira siempre la compra mínima y la fecha.</p>'
+                  + f'<p class="actualizado">Actualizado el {fecha_larga(hoy)} · {"1 cupón" if len(cupones) == 1 else str(len(cupones)) + " cupones"}</p>')
+        aviso = ('<section class="mas-info"><h2>Antes de usar un cupón</h2><p>Los cupones los pone la tienda y pueden '
+                 'agotarse antes de su fecha. Si uno no te funciona, prueba otro de la lista. Son enlaces de afiliado: si '
+                 'compras, ganamos una pequeña comisión y a ti te cuesta lo mismo.</p></section>')
+        escribir("cupones/", pagina(index, "cupones/", "Cupones de AliExpress de hoy · Precio Ridículo",
+                                    "Cupones y códigos de descuento de AliExpress en vigor, revisados cada día por Precio Ridículo.",
+                                    cabeza, '<div class="cupones">' + "".join(tarjeta_cupon(c) for c in cupones) + "</div>"
+                                    + aviso + COPIAR, "cupones/", enlaces))
+    elif (RAIZ / "cupones/index.html").exists():
+        (RAIZ / "cupones/index.html").unlink()
+
     # Índice de secciones
-    numeros = ([sum(o.get("categoria") == c for o in ofertas) for c in categorias]
+    numeros = ([sum(1 for o in ali) if r == "11-11/" else len(cupones) for r, _ in temporada]
+               + [sum(o.get("categoria") == c for o in ofertas) for c in categorias]
                + [sum((o.get("precio") or 1e9) < t for o in ofertas) for t in topes]
                + [sum(str(o.get("tienda", "")).lower() == t.lower() for o in ofertas) for t in tiendas])
-    tarjetas = "".join(f'<a href="/{r}">{E(t)}<small>{cuantos(n)}</small></a>' for (r, t), n in zip(enlaces, numeros))
+    def etiqueta_n(r, n):
+        return (f"{n} cupón" if n == 1 else f"{n} cupones") if r == "cupones/" else cuantos(n)
+    tarjetas = "".join(f'<a href="/{r}">{E(t)}<small>{etiqueta_n(r, n)}</small></a>' for (r, t), n in zip(enlaces, numeros))
     cabeza = ('<p class="migas"><a href="/">Inicio</a> › Secciones</p><h1>Todos los hallazgos de Precio Ridículo</h1>'
               '<p>Moda, gadgets y casa a precio de risa, por sección, por precio y por tienda.</p>'
               + actualizado.format(n=cuantos(len(ofertas))))
