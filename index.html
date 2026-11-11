@@ -240,7 +240,7 @@ button{font:inherit}
 .pie strong{color:var(--amarillo)}
 .pie a{color:var(--amarillo)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-.aviso-1111{display:flex;gap:14px;align-items:center;margin:20px 0 4px;padding:14px 16px;border-radius:18px;background:var(--tinta);color:var(--blanco);text-decoration:none;border:var(--borde);box-shadow:var(--sombra)}.aviso-1111[hidden]{display:none}.aviso-1111 .n1111{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:86px;height:58px;padding:0 10px;border-radius:14px;background:var(--rojo);color:var(--blanco);font-weight:900;font-size:26px;letter-spacing:-0.03em;transform:rotate(-4deg)}.aviso-1111 .t1111{flex:1;font-size:14.5px;line-height:1.35;font-weight:600}.aviso-1111 strong{display:block;font-size:17px;font-weight:900;margin-bottom:2px;color:var(--amarillo)}.aviso-1111 .b1111{flex:0 0 auto;background:var(--amarillo);color:var(--tinta);font-weight:900;border-radius:12px;padding:10px 16px;white-space:nowrap}@media (max-width:520px){.aviso-1111{flex-wrap:wrap}.aviso-1111 .t1111{flex:1 1 55%}.aviso-1111 .b1111{flex:1 1 100%;text-align:center}}
+.aviso-1111{display:flex;gap:14px;align-items:center;margin:20px 0 4px;padding:14px 16px;border-radius:18px;background:var(--tinta);color:var(--blanco);text-decoration:none;border:var(--borde);box-shadow:var(--sombra)}.aviso-1111[hidden]{display:none}.aviso-1111.aviso-cupones{background:var(--blanco);color:var(--tinta)}.aviso-1111.aviso-cupones strong{color:var(--tinta)}.aviso-1111.aviso-cupones .n1111{background:var(--amarillo);font-size:30px}.aviso-1111 .n1111{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:86px;height:58px;padding:0 10px;border-radius:14px;background:var(--rojo);color:var(--blanco);font-weight:900;font-size:26px;letter-spacing:-0.03em;transform:rotate(-4deg)}.aviso-1111 .t1111{flex:1;font-size:14.5px;line-height:1.35;font-weight:600}.aviso-1111 strong{display:block;font-size:17px;font-weight:900;margin-bottom:2px;color:var(--amarillo)}.aviso-1111 .b1111{flex:0 0 auto;background:var(--amarillo);color:var(--tinta);font-weight:900;border-radius:12px;padding:10px 16px;white-space:nowrap}@media (max-width:520px){.aviso-1111{flex-wrap:wrap}.aviso-1111 .t1111{flex:1 1 55%}.aviso-1111 .b1111{flex:1 1 100%;text-align:center}}
 .aviso-tg{display:flex;gap:14px;align-items:center;margin:22px 0 6px;padding:14px 16px;border-radius:18px;background:var(--blanco);color:var(--tinta);text-decoration:none;border:var(--borde);box-shadow:var(--sombra)}.aviso-tg img{height:88px;width:auto;flex:0 0 auto}.aviso-tg .tg-texto{flex:1;font-size:14.5px;line-height:1.35;font-weight:600}.aviso-tg strong{display:block;font-size:17px;font-weight:900;margin-bottom:2px}.aviso-tg .tg-boton{display:inline-flex;align-items:center;gap:6px;background:var(--tinta);color:var(--amarillo);font-weight:900;border-radius:12px;padding:10px 16px;white-space:nowrap}.aviso-tg .tg-boton svg{width:18px;height:18px}@media (max-width:520px){.aviso-tg{flex-wrap:wrap}.aviso-tg .tg-texto{flex:1 1 60%}.aviso-tg .tg-boton{flex:1 1 100%;justify-content:center}}
 </style>
 <!-- Contador de visitas de Metricool (sin cookies) -->
@@ -294,6 +294,7 @@ button{font:inherit}
 
     <div class="wrap">
       <a class="aviso-1111" id="aviso-1111" href="/11-11/" hidden><span class="n1111">11.11</span><span class="t1111"><strong>Especial 11.11 de AliExpress</strong>Lo más rebajado de hoy, todo junto. Hasta el 18 de noviembre.</span><span class="b1111">Ver el especial →</span></a>
+      <a class="aviso-1111 aviso-cupones" id="aviso-cupones" href="/cupones/" hidden><span class="n1111">🎟️</span><span class="t1111"><strong>Cupones de AliExpress de hoy</strong>Códigos para ahorrar al pagar, revisados cada día.</span><span class="b1111">Ver cupones →</span></a>
       <section class="seccion" id="bloque-destacado" aria-labelledby="titulo-destacado" hidden>
         <div class="titulo-seccion"><h2 id="titulo-destacado">El precio <mark>más ridículo</mark> ahora</h2><p>El mayor descuento de la lista en este momento.</p></div>
         <div id="destacado"></div>
@@ -364,7 +365,7 @@ button{font:inherit}
     <p>Los precios son los de la fecha indicada en cada oferta y pueden cambiar. El precio final y el envío son los que veas en la tienda.</p>
     <p>Esta web no vende ni envía productos y no es la tienda oficial de ninguna marca.</p>
     <p>Titular: Adrián Méndez · NIF: 42264958C · Contacto: <a href="mailto:precioridiculo7@gmail.com">precioridiculo7@gmail.com</a></p>
-    <nav class="legal" aria-label="Secciones"><a href="/ofertas/">Todos los hallazgos</a><a href="/ofertas/moda/">Moda</a><a href="/ofertas/gadgets/">Gadgets</a><a href="/ofertas/casa/">Casa</a><a href="/ofertas/menos-de-5-euros/">Menos de 5 €</a></nav>
+    <nav class="legal" aria-label="Secciones"><a href="/ofertas/">Todos los hallazgos</a><a href="/ofertas/moda/">Moda</a><a href="/ofertas/gadgets/">Gadgets</a><a href="/ofertas/casa/">Casa</a><a href="/ofertas/menos-de-5-euros/">Menos de 5 €</a><a href="/cupones/">Cupones</a></nav>
     <nav class="legal" aria-label="Textos legales"><a href="aviso-legal.html#aviso">Aviso legal</a><a href="aviso-legal.html#privacidad">Privacidad</a><a href="aviso-legal.html#cookies">Cookies</a></nav>
     <p>© 2026 Precio Ridículo</p>
   </div>
@@ -653,6 +654,9 @@ window.addEventListener("hashchange", ruta);
 (function () { var el = document.getElementById('aviso-1111'); if (!el) return;
   try { var hoy = new Intl.DateTimeFormat('en-CA', { timeZone: 'Atlantic/Canary' }).format(new Date());
     if (hoy <= '2026-11-18') el.hidden = false; } catch (e) {} })();
+// Aviso de cupones: solo si hoy hay página de cupones
+(function () { var el = document.getElementById('aviso-cupones'); if (!el || !window.fetch) return;
+  fetch('/cupones/', { method: 'HEAD' }).then(function (r) { if (r.ok) el.hidden = false; }).catch(function () {}); })();
 </script>
 </body>
 </html>

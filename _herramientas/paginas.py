@@ -185,6 +185,8 @@ def leer_cupones(hoy):
         except ValueError:
             continue
         lista.append(c)
+    lista.sort(key=lambda c: (0 if str(c.get("codigo") or "").strip() else 1,
+                              c.get("minimo") if isinstance(c.get("minimo"), (int, float)) else 0))
     return lista
 
 
@@ -206,7 +208,7 @@ def tarjeta_cupon(c):
         bloque = (f'<div class="codigo"><code>{E(codigo)}</code><button class="copiar" type="button" '
                   f'data-codigo="{E(codigo)}">Copiar</button></div>')
     else:
-        bloque = '<p class="sin-codigo">Sin código: el descuento se aplica al entrar desde el botón.</p>'
+        bloque = '<p class="sin-codigo">Sin código: entra desde el botón para verlo.</p>'
     cantidad = f'<span class="cantidad">{E(c["descuento"])}</span>' if c.get("descuento") else ""
     return (f'<article class="cupon">{cantidad}<h3>{E(c["titulo"])}</h3>'
             + (f'<p class="detalle">{" · ".join(detalle)}</p>' if detalle else "") + bloque
