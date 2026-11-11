@@ -42,6 +42,36 @@
    "tipo": "mensaje",
    "texto": "🔥 <b>ESPECIAL 11.11 DE ALIEXPRESS</b> 🔥\n\nHasta el 18 de noviembre a las 23:59, AliExpress está de rebajas por el 11.11.\n\n🛍️ Ridi ha juntado en una sola página lo más rebajado de hoy, del mayor descuento al menor:\n👉 <a href=\"https://elprecioridiculo.com/11-11/?d=tg\">elprecioridiculo.com/11-11</a>\n\n💡 Si un cupón pide compra mínima, junta varias cosas baratas para llegar.\n📦 Pide con margen: muchos envíos salen de China.\n\nLa página se actualiza cada mañana. Activa las notificaciones 🔔\n\n<i>Enlaces de afiliado: si compras, ganamos una pequeña comisión y a ti te cuesta lo mismo.</i>",
    "fijar": true
+  },
+  {
+   "id": "2026-11-11-pr-cupon-compra-minima",
+   "fecha": "2026-11-11",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-11-pr-cupon-compra-minima.mp4",
+   "titulo": "¿Un cupón del 11.11 con compra mínima? Ojo con esto",
+   "texto": "Suma primero lo que ya ibas a comprar. Si te falta poco, añade algo útil, no un capricho. Y antes de pagar, mira el precio final con el envío."
+  },
+  {
+   "id": "2026-11-11-pr-reloj-pared-gigante",
+   "fecha": "2026-11-11",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-11-pr-reloj-pared-gigante.mp4",
+   "titulo": "¿Una pared vacía en el salón? Reloj gigante por unos 5 €",
+   "texto": "Reloj de pared gigante que montas tú pegando los números y las agujas: queda de 90 a 120 cm. Silencioso, para el salón o el dormitorio.",
+   "numeros": [
+    34
+   ]
+  },
+  {
+   "id": "2026-11-11-pr-bolsas-compresion-maleta",
+   "fecha": "2026-11-11",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-11-pr-bolsas-compresion-maleta.mp4",
+   "titulo": "¿Tu maleta está a punto de explotar? 5 bolsas por unos 13 €",
+   "texto": "Set de 5 bolsas para ordenar y comprimir la ropa en la maleta o la mochila. Para viajar con todo en su sitio.",
+   "numeros": [
+    31
+   ]
   }
  ]
 }
