@@ -1,6 +1,6 @@
 {
- "fecha": "2026-11-11",
- "total_feed": 191,
+ "fecha": "2026-11-12",
+ "total_feed": 189,
  "cupones": [
   {
    "id": "785883",
@@ -131,32 +131,6 @@
    "enlace": "https://rzekl.com/g/szoxjathy1994f380ebb16525dc3e8/?i=3&subid=web",
    "condiciones": "Si no te funciona, prueba con AEES75.",
    "original": "11.11 Sale ES codes: ESD1175 - €75 de descuento en compras mínimas de €429"
-  },
-  {
-   "id": "967981",
-   "tienda": "AliExpress",
-   "titulo": "100 € de descuento en pedidos desde 500 €",
-   "codigo": "ESD11100",
-   "descuento": "100 €",
-   "minimo": 500.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-11",
-   "enlace": "https://rzekl.com/g/0114gho26j994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "",
-   "original": "11.11 Sale ES codes: ESD11100 - €100 de descuento en compras mínimas de €500 - Válido solo: 1-3 y 11"
-  },
-  {
-   "id": "967982",
-   "tienda": "AliExpress",
-   "titulo": "120 € de descuento en pedidos desde 600 €",
-   "codigo": "ESD11120",
-   "descuento": "120 €",
-   "minimo": 600.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-11",
-   "enlace": "https://rzekl.com/g/ikt57y5eds994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "",
-   "original": "11.11 Sale ES codes: ESD11120 - €120 de descuento en compras mínimas de €600 - Válido solo: 1-3 y 11"
   }
  ]
 }
