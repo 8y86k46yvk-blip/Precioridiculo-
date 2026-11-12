@@ -384,7 +384,8 @@ const CONFIG = {
 // ================== OFERTAS ==================
 // numero: el número que sale en el vídeo · precio y antes: en euros
 // enlace: tu enlace de afiliado de Admitad · imagen: URL de la foto · fecha: AAAA-MM-DD
-// tienda: "AliExpress" o "Hacoo" · aprox: true si el precio viene de dólares (sale con ≈ y la nota de aproximado)
+// tienda: "AliExpress", "Joom" o "Hacoo" · aprox: true si el precio viene de dólares (sale con ≈ y la nota de aproximado)
+// solo_web: true → la oferta sale en la web pero no en Telegram, pines ni vídeos (Joom, hasta que su gestor lo apruebe)
 // Borra las de ejemplo cuando pongas las tuyas.
 const OFERTAS = [
   { numero: 48, producto: "10 ratoncitos de resina en miniatura con macarons", categoria: "Casa", tienda: "AliExpress", aprox: true, precio: 1.15, antes: 3.04, descripcion: "Diez figuritas diminutas de ratones de resina con macarons, para decorar el escritorio, una estantería o un paisaje en miniatura.", enlace: "https://rzekl.com/g/1e8d114494994f380ebb16525dc3e8/?ulp=https%3A%2F%2Fs.click.aliexpress.com%2Fdeep_link.htm%3Faff_short_key%3D_c3s1yQkJ%26dl_target_url%3Dhttps%253A%252F%252Fwww.aliexpress.com%252Fitem%252F1005012613911651.html%253Fpdp_npi%253D6%252540dis%252521USD%2525213.38%2525211.28%252521%252521%25252122.47%2525218.54%252521%2525402102f1cd17944351169251810e0e92%25252112000058868438936%252521affd%252521%252521%252521%2525211%2525210%252521%26hot_product%3D1&i=5&f_id=50003&subid=web", imagen: "https://ae-pic-a1.aliexpress-media.com/kf/S164999f72f804a5984ec2bc4027a02db2.jpg", fecha: "2026-11-12", ali_id: "1005012613911651" },
@@ -505,6 +506,7 @@ function precios(o){
 function notaFecha(o){
   const f = fecha(o.fecha);
   if (o.aprox) return '<p class="nota">Precio aproximado' + (f ? " del " + f : "") + ', pasado de dólares. El precio final lo ves en ' + esc(tienda(o) || "la tienda") + '.</p>';
+  if (o.hasta) return '<p class="nota">Precio entrando desde esta web, hasta el ' + fecha(o.hasta) + '. El final lo ves en ' + esc(tienda(o) || "la tienda") + '.</p>';
   return f ? '<p class="nota">Precio a ' + f + '. Puede cambiar.</p>' : "";
 }
 
@@ -659,6 +661,9 @@ window.addEventListener("hashchange", ruta);
       if (r.ok){ const d = desdeCSV(await r.text()); if (d.length) ofertas = d; }
     } catch (err) { /* si la hoja falla, se quedan las ofertas de la lista */ }
   }
+  // «hasta»: último día en que vale el precio (Joom lo mantiene solo unos días a quien entra por el enlace)
+  const hoyCanarias = new Date().toLocaleDateString("sv-SE", { timeZone: "Atlantic/Canary" });
+  ofertas = ofertas.filter(o => !o.hasta || String(o.hasta) >= hoyCanarias);
   ofertas.sort((a, b) => (b.numero || 0) - (a.numero || 0));
   pintarDatos(); pintarFiltros(); pintarLista(); ruta();
 })();

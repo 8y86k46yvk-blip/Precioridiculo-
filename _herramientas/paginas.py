@@ -6,7 +6,7 @@ Lee CONFIG, OFERTAS e ICONOS de index.html (con node) y escribe:
   ofertas/index.html                        (todas las secciones)
   ofertas/<categoría>/index.html            (una por categoría de CONFIG: moda, gadgets, casa)
   ofertas/menos-de-3-euros/, ofertas/menos-de-5-euros/, ofertas/menos-de-10-euros/
-  ofertas/<tienda>/index.html               (aliexpress y hacoo)
+  ofertas/<tienda>/index.html               (aliexpress, joom y hacoo, las que tengan ofertas)
   11-11/index.html                          (especial 11.11 de AliExpress hasta el 18 nov 2026; después, aviso de fin)
   cupones/index.html                        (cupones de cupones.json, si hay alguno en vigor)
   assets/web/estilo.css                     (los estilos de index.html, para estas páginas)
@@ -31,7 +31,7 @@ TRACKER = ('<script>function loadScript(a){var b=document.getElementsByTagName("
 POSES = ["ridi-5-pulgar-guino", "ridi-2-sorpresa", "ridi-4-senala", "ridi-7-sospecha", "ridi-1-habla", "ridi-3-risa"]
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre",
          "diciembre"]
-TIENDAS = ["AliExpress", "Hacoo"]
+TIENDAS = ["AliExpress", "Joom", "Hacoo"]
 FIN_1111 = datetime.date(2026, 11, 18)   # el 11.11 de AliExpress dura hasta el 18 de noviembre a las 23:59
 MENU_EXTRA = []                          # enlaces de temporada en la cabecera (los pone main)
 
@@ -128,6 +128,9 @@ def tarjeta(o, i, iconos, categorias):
     if o.get("aprox"):
         nota = (f'<p class="nota">Precio aproximado{" del " + fo if fo else ""}, pasado de dólares. El precio final lo ves en '
                 f'{E(tienda or "la tienda")}.</p>')
+    elif o.get("hasta") and fecha_oferta(o.get("hasta")):
+        nota = (f'<p class="nota">Precio entrando desde esta web, hasta el {fecha_oferta(o.get("hasta"))}. El final lo ves '
+                f'en {E(tienda or "la tienda")}.</p>')
     else:
         nota = f'<p class="nota">Precio a {fo}. Puede cambiar.</p>' if fo else ""
     enlace = url_segura(o.get("enlace"))
@@ -161,9 +164,10 @@ LOGO = ('<svg width="36" height="24" viewBox="0 0 120 80" aria-hidden="true" sty
         'fill="#FFD60A"></circle></svg><span>PRECIO</span><span class="banda">RIDÍCULO</span>')
 
 TEXTO_RIDI = ('<section class="mas-info"><h2>Cómo elige Ridi los hallazgos</h2><p>Cada mañana se revisan miles de productos '
-              'rebajados de AliExpress (y de Hacoo cuando hay). Solo entran cosas útiles, curiosas o bonitas, sin marcas ni '
-              'imitaciones. Los precios de AliExpress vienen en dólares y aquí salen pasados a euros (≈): el que vale es el '
-              'que veas en la tienda al pagar. Muchos envíos salen de China: pide con margen.</p><p>¿Vienes de un vídeo? '
+              'baratos de AliExpress y Joom (y de Hacoo cuando hay). Solo entran cosas útiles, curiosas o bonitas, sin marcas '
+              'ni imitaciones. Los precios de AliExpress vienen en dólares y aquí salen pasados a euros (≈); los de Joom ya '
+              'vienen en euros. El que vale es el que veas en la tienda al pagar. Muchos envíos salen de China: pide con '
+              'margen.</p><p>¿Vienes de un vídeo? '
               'Busca el número en <a href="/">elprecioridiculo.com</a>.</p></section>')
 
 
@@ -324,9 +328,11 @@ def main():
     index = (RAIZ / "index.html").read_text(encoding="utf-8")
     datos = leer_datos(index)
     categorias, iconos = datos["CONFIG"]["categorias"], datos["ICONOS"]
-    ofertas = [o for o in datos["OFERTAS"] if not o.get("ejemplo") and o.get("producto")]
-    ofertas.sort(key=lambda o: -(o.get("numero") or 0))
     hoy = datetime.datetime.now(ZoneInfo("Atlantic/Canary")).date()
+    # «hasta»: último día en que vale el precio (las de Joom); pasado ese día la oferta ya no sale
+    ofertas = [o for o in datos["OFERTAS"] if not o.get("ejemplo") and o.get("producto")
+               and (not o.get("hasta") or str(o["hasta"]) >= hoy.isoformat())]
+    ofertas.sort(key=lambda o: -(o.get("numero") or 0))
     actualizado = f'<p class="actualizado">Actualizado el {fecha_larga(hoy)} · {{n}}</p>'
 
     css = re.search(r"<style>([\s\S]*?)</style>", index).group(1).replace("url(assets/", "url(/assets/")
