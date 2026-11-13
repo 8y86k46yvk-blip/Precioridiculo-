@@ -113,6 +113,36 @@
    "numeros": [
     44
    ]
+  },
+  {
+   "id": "2026-11-13-pr-precio-tachado",
+   "fecha": "2026-11-13",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-precio-tachado.mp4",
+   "titulo": "El error más caro del 11.11",
+   "texto": "No te fíes solo del precio tachado. Antes de pagar, mira el precio final con el envío incluido y compáralo en otras tiendas: si apenas cambia, no es tan chollo."
+  },
+  {
+   "id": "2026-11-13-pr-candado-tres-digitos",
+   "fecha": "2026-11-13",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-candado-tres-digitos.mp4",
+   "titulo": "Un candado por menos de 3 €",
+   "texto": "Candado pequeño con clave de 3 números que eliges tú, para la maleta, la mochila o la taquilla del gimnasio.",
+   "numeros": [
+    64
+   ]
+  },
+  {
+   "id": "2026-11-13-pr-gotero-tulipan",
+   "fecha": "2026-11-13",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-gotero-tulipan.mp4",
+   "titulo": "¿Se te olvida regar las plantas?",
+   "texto": "Gotero transparente con forma de tulipán: lo clavas en la maceta y suelta el agua poco a poco, para regar sin estar pendiente.",
+   "numeros": [
+    58
+   ]
   }
  ]
 }
