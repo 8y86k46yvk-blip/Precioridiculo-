@@ -1,30 +1,6 @@
 {
  "piezas": [
   {
-   "id": "2026-11-10-pr-opiniones-tres-estrellas",
-   "fecha": "2026-11-10",
-   "hora": "13:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-10-pr-opiniones-tres-estrellas.mp4",
-   "titulo": "¿Te fías de las opiniones de cinco estrellas?",
-   "texto": "Las más útiles suelen ser las de tres estrellas: cuentan lo bueno y lo malo. Ahí descubres si la talla es pequeña o si la tela transparenta. Léelas siempre antes de pagar."
-  },
-  {
-   "id": "2026-11-10-pr-solo-voy-a-mirar",
-   "fecha": "2026-11-10",
-   "hora": "16:30",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-10-pr-solo-voy-a-mirar.mp4",
-   "titulo": "«Solo voy a mirar»: la frase más peligrosa",
-   "texto": "Abres la app un momento y acabas con doce cosas en el carrito. Truco: antes de entrar, apunta lo que necesitas de verdad. Lo que no esté en la lista, que espere un día."
-  },
-  {
-   "id": "2026-11-10-pr-preparar-black-friday",
-   "fecha": "2026-11-10",
-   "hora": "19:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-10-pr-preparar-black-friday.mp4",
-   "titulo": "¿El Black Friday te pilla siempre sin plan? Este año, no",
-   "texto": "Primero, haz una lista con lo que de verdad necesitas. Segundo, ponte un presupuesto y no lo pases. Y apunta los precios de hoy: así sabrás si la rebaja es real."
-  },
-  {
    "id": "2026-11-10-pr-despertador-prueba",
    "fecha": "2026-11-11",
    "hora": "21:00",
@@ -286,6 +262,36 @@
    "texto": "Báscula digital colgante: se cuelga del asa de la maleta y su pantalla iluminada te dice cuánto pesa antes de ir al aeropuerto.",
    "numeros": [
     137
+   ]
+  },
+  {
+   "id": "2026-11-18-pr-carrito-madrugada",
+   "fecha": "2026-11-18",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-18-pr-carrito-madrugada.mp4",
+   "titulo": "¿Carrito lleno a las 3 de la mañana?",
+   "texto": "Con tantas ofertas del 11.11, el carrito se llena solo. Antes de pagar, repásalo y quita lo que no vayas a usar de verdad. Si dudas, fuera: tu cartera te lo agradecerá."
+  },
+  {
+   "id": "2026-11-18-pr-pendientes-ear-cuff",
+   "fecha": "2026-11-18",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-18-pr-pendientes-ear-cuff.mp4",
+   "titulo": "Tres pendientes por ≈1 €",
+   "texto": "Set de 3 pendientes ear cuff en forma de C que se ponen a presión en la oreja, sin necesidad de agujero. Para un look moderno o punk.",
+   "numeros": [
+    166
+   ]
+  },
+  {
+   "id": "2026-11-18-pr-manta-chenilla",
+   "fecha": "2026-11-18",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-18-pr-manta-chenilla.mp4",
+   "titulo": "¿Cuánto crees que cuesta esta manta?",
+   "texto": "Manta de punto de chenilla tejida a mano, suave y lavable a máquina. Para taparte en el sofá o vestir la cama este invierno.",
+   "numeros": [
+    167
    ]
   }
  ]
