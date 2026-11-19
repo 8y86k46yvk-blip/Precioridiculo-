@@ -1,6 +1,6 @@
 {
- "fecha": "2026-11-18",
- "total_feed": 181,
+ "fecha": "2026-11-19",
+ "total_feed": 26,
  "cupones": [
   {
    "id": "785883",
@@ -40,97 +40,6 @@
    "enlace": "https://rzekl.com/g/w3olfft0aw994f380ebb16525dc3e8/?i=3&subid=web",
    "condiciones": "",
    "original": "3 Artículos por 5,99€. Sólo disponible en la APP de AliExpress."
-  },
-  {
-   "id": "967967",
-   "tienda": "AliExpress",
-   "titulo": "3 € de descuento en pedidos desde 18 €",
-   "codigo": "ESD1103",
-   "descuento": "3 €",
-   "minimo": 18.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/w84tu73c4e994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES03.",
-   "original": "11.11 Sale ES codes: ESD1103  - €3 de descuento en compras mínimas de €18"
-  },
-  {
-   "id": "967969",
-   "tienda": "AliExpress",
-   "titulo": "8 € de descuento en pedidos desde 45 €",
-   "codigo": "ESD1108",
-   "descuento": "8 €",
-   "minimo": 45.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/jdu6h8ayef994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES08.",
-   "original": "11.11 Sale ES codes: ESD1108 - €8 de descuento en compras mínimas de €45"
-  },
-  {
-   "id": "967971",
-   "tienda": "AliExpress",
-   "titulo": "12 € de descuento en pedidos desde 69 €",
-   "codigo": "ESD1112",
-   "descuento": "12 €",
-   "minimo": 69.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/9rpl7z8eno994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES12.",
-   "original": "11.11 Sale ES codes: ESD1112 - €12 de descuento en compras mínimas de €69"
-  },
-  {
-   "id": "967973",
-   "tienda": "AliExpress",
-   "titulo": "23 € de descuento en pedidos desde 135 €",
-   "codigo": "ESD1123",
-   "descuento": "23 €",
-   "minimo": 135.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/55f33d3w66994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES23.",
-   "original": "11.11 Sale ES codes: ESD1123 - €23 de descuento en compras mínimas de €135"
-  },
-  {
-   "id": "967975",
-   "tienda": "AliExpress",
-   "titulo": "39 € de descuento en pedidos desde 230 €",
-   "codigo": "ESD1139",
-   "descuento": "39 €",
-   "minimo": 230.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/z815oojux8994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES39.",
-   "original": "11.11 Sale ES codes: ESD1139 - €39 de descuento en compras mínimas de €230"
-  },
-  {
-   "id": "967977",
-   "tienda": "AliExpress",
-   "titulo": "58 € de descuento en pedidos desde 325 €",
-   "codigo": "ESD1158",
-   "descuento": "58 €",
-   "minimo": 325.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/uyme9rhauo994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES58.",
-   "original": "11.11 Sale ES codes: ESD1158 - €58 de descuento en compras mínimas de €325"
-  },
-  {
-   "id": "967979",
-   "tienda": "AliExpress",
-   "titulo": "75 € de descuento en pedidos desde 429 €",
-   "codigo": "ESD1175",
-   "descuento": "75 €",
-   "minimo": 429.0,
-   "desde": "2026-11-01",
-   "hasta": "2026-11-18",
-   "enlace": "https://rzekl.com/g/szoxjathy1994f380ebb16525dc3e8/?i=3&subid=web",
-   "condiciones": "Si no te funciona, prueba con AEES75.",
-   "original": "11.11 Sale ES codes: ESD1175 - €75 de descuento en compras mínimas de €429"
   }
  ]
 }
