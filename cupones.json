@@ -1,7 +1,20 @@
 {
- "fecha": "2026-11-19",
- "total_feed": 26,
+ "fecha": "2026-11-20",
+ "total_feed": 206,
  "cupones": [
+  {
+   "id": "971025",
+   "tienda": "AliExpress",
+   "titulo": "Aliexpress Black Friday/Cyber Monday ES codes: ESBF02 o AEES02 : €13-€2",
+   "codigo": "ESBF02",
+   "descuento": "",
+   "minimo": null,
+   "desde": "2026-11-19",
+   "hasta": "2026-12-03",
+   "enlace": "https://rzekl.com/g/i0o8efy48a994f380ebb16525dc3e8/?i=3&subid=web",
+   "condiciones": "Si no te funciona, prueba con AEES02.",
+   "original": "Aliexpress Black Friday/Cyber Monday ES codes: ESBF02 o AEES02 : €13-€2"
+  },
   {
    "id": "785883",
    "tienda": "AliExpress",
