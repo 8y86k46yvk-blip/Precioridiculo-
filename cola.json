@@ -1,36 +1,6 @@
 {
  "piezas": [
   {
-   "id": "2026-11-13-pr-precio-tachado",
-   "fecha": "2026-11-13",
-   "hora": "13:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-precio-tachado.mp4",
-   "titulo": "El error más caro del 11.11",
-   "texto": "No te fíes solo del precio tachado. Antes de pagar, mira el precio final con el envío incluido y compáralo en otras tiendas: si apenas cambia, no es tan chollo."
-  },
-  {
-   "id": "2026-11-13-pr-candado-tres-digitos",
-   "fecha": "2026-11-13",
-   "hora": "16:30",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-candado-tres-digitos.mp4",
-   "titulo": "Un candado por menos de 3 €",
-   "texto": "Candado pequeño con clave de 3 números que eliges tú, para la maleta, la mochila o la taquilla del gimnasio.",
-   "numeros": [
-    64
-   ]
-  },
-  {
-   "id": "2026-11-13-pr-gotero-tulipan",
-   "fecha": "2026-11-13",
-   "hora": "19:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-13-pr-gotero-tulipan.mp4",
-   "titulo": "¿Se te olvida regar las plantas?",
-   "texto": "Gotero transparente con forma de tulipán: lo clavas en la maceta y suelta el agua poco a poco, para regar sin estar pendiente.",
-   "numeros": [
-    58
-   ]
-  },
-  {
    "id": "2026-11-14-pr-yo-de-rebajas",
    "fecha": "2026-11-14",
    "hora": "13:00",
@@ -262,6 +232,38 @@
    "texto": "Dos pinzas que mantienen la cortina de la ducha pegada a la pared para evitar salpicaduras en el suelo del baño.",
    "numeros": [
     195
+   ]
+  },
+  {
+   "id": "2026-11-21-pr-tamano-real",
+   "fecha": "2026-11-21",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-21-pr-tamano-real.mp4",
+   "titulo": "¿Cuánto mide de verdad lo que compras?",
+   "texto": "En la foto parece enorme y luego te llega en miniatura. Busca las medidas en centímetros en la ficha, saca el metro y compáralo con algo que tengas en casa; las fotos de los clientes también ayudan a ver el tamaño real."
+  },
+  {
+   "id": "2026-11-21-pr-top3-menos5",
+   "fecha": "2026-11-21",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-21-pr-top3-menos5.mp4",
+   "titulo": "Tres cosas por menos de cinco euros",
+   "texto": "Una esterilla de aluminio que aísla de la humedad del suelo, una cartera para el pasaporte con correa de muñeca y una tobillera de acero con colgante de cereza o corazón.",
+   "numeros": [
+    245,
+    233,
+    242
+   ]
+  },
+  {
+   "id": "2026-11-21-pr-pulpo-taza",
+   "fecha": "2026-11-21",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-21-pr-pulpo-taza.mp4",
+   "titulo": "¿Cuánto crees que cuesta este pulpo?",
+   "texto": "Escultura de pulpo de resina que sujeta una taza con los tentáculos. Un adorno curioso para el salón, el jardín o el acuario.",
+   "numeros": [
+    250
    ]
   }
  ]
