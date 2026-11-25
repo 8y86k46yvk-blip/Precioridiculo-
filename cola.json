@@ -1,36 +1,6 @@
 {
  "piezas": [
   {
-   "id": "2026-11-17-pr-fotos-paquete-roto",
-   "fecha": "2026-11-17",
-   "hora": "13:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-17-pr-fotos-paquete-roto.mp4",
-   "titulo": "¿Haces fotos al abrir el paquete?",
-   "texto": "Con los pedidos del 11.11 en camino: si llega roto o le falta algo, haz fotos del paquete y del producto. Si ya se ve dañado al recibirlo, anótalo en el albarán y reclama cuanto antes en la app."
-  },
-  {
-   "id": "2026-11-17-pr-espejo-colibri",
-   "fecha": "2026-11-17",
-   "hora": "16:30",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-17-pr-espejo-colibri.mp4",
-   "titulo": "¿Cuánto crees que cuesta este espejo?",
-   "texto": "Espejo de pared con un colibrí dorado: una pieza de resina para colgar y decorar el salón, la entrada o el dormitorio.",
-   "numeros": [
-    138
-   ]
-  },
-  {
-   "id": "2026-11-17-pr-bascula-maleta",
-   "fecha": "2026-11-17",
-   "hora": "19:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-17-pr-bascula-maleta.mp4",
-   "titulo": "¿Tu maleta pesa más de la cuenta?",
-   "texto": "Báscula digital colgante: se cuelga del asa de la maleta y su pantalla iluminada te dice cuánto pesa antes de ir al aeropuerto.",
-   "numeros": [
-    137
-   ]
-  },
-  {
    "id": "2026-11-18-pr-carrito-madrugada",
    "fecha": "2026-11-18",
    "hora": "13:00",
@@ -240,6 +210,36 @@
    "texto": "Toalla de microfibra ligera, suave y de secado rápido. Para el gimnasio, la piscina, el yoga, la playa o el camping.",
    "numeros": [
     320
+   ]
+  },
+  {
+   "id": "2026-11-25-pr-talla-centimetros",
+   "fecha": "2026-11-25",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-25-pr-talla-centimetros.mp4",
+   "titulo": "El error de pedir tu talla de siempre",
+   "texto": "Cada tienda mide distinto: tu M puede quedarte como una S. Mide una prenda que te quede bien y compara sus centímetros con la tabla de tallas de la ficha, no con la letra."
+  },
+  {
+   "id": "2026-11-25-pr-amatista",
+   "fecha": "2026-11-25",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-25-pr-amatista.mp4",
+   "titulo": "Amatista natural por menos de 3 €",
+   "texto": "Racimo de amatista natural en bruto con forma de capullo de flor. Para decorar la mesa o empezar una colección de minerales.",
+   "numeros": [
+    339
+   ]
+  },
+  {
+   "id": "2026-11-25-pr-funda-asa-maleta",
+   "fecha": "2026-11-25",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-25-pr-funda-asa-maleta.mp4",
+   "titulo": "¿Cuánto crees que cuesta esto?",
+   "texto": "Funda personalizada con tu nombre que se pone en el asa de la maleta para reconocerla en la cinta del aeropuerto. Un buen regalo para quien viaja.",
+   "numeros": [
+    359
    ]
   }
  ]
