@@ -1,36 +1,6 @@
 {
  "piezas": [
   {
-   "id": "2026-11-19-pr-etiqueta-luces-navidad",
-   "fecha": "2026-11-19",
-   "hora": "13:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-19-pr-etiqueta-luces-navidad.mp4",
-   "titulo": "¿Miras la etiqueta de las luces de Navidad?",
-   "texto": "Antes de comprarlas, busca el marcado CE y el nombre y la dirección del responsable en la UE. Las instrucciones tienen que venir, al menos, en castellano, y la guirnalda y la caja tienen que decir si son de interior o de exterior."
-  },
-  {
-   "id": "2026-11-19-pr-reloj-digital-temperatura",
-   "fecha": "2026-11-19",
-   "hora": "16:30",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-19-pr-reloj-digital-temperatura.mp4",
-   "titulo": "¿Cuánto crees que cuesta este reloj?",
-   "texto": "Reloj LED grande con fecha, día de la semana, temperatura, humedad y dos alarmas. Va por USB y sirve de pared o de mesa.",
-   "numeros": [
-    190
-   ]
-  },
-  {
-   "id": "2026-11-19-pr-collar-cuarzo-rosa",
-   "fecha": "2026-11-19",
-   "hora": "19:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-19-pr-collar-cuarzo-rosa.mp4",
-   "titulo": "Un collar por menos de tres euros",
-   "texto": "Collar con una piedra de cuarzo rosa natural de forma irregular colgada de un cordón trenzado. Para llevar a diario o regalar.",
-   "numeros": [
-    188
-   ]
-  },
-  {
    "id": "2026-11-20-pr-barato-o-bueno",
    "fecha": "2026-11-20",
    "hora": "13:00",
@@ -240,6 +210,36 @@
    "texto": "Fundas finas para los pulgares, antisudor y que no rayan la pantalla, pensadas para jugar con el móvil o la tablet.",
    "numeros": [
     385
+   ]
+  },
+  {
+   "id": "2026-11-27-pr-gastos-envio",
+   "fecha": "2026-11-27",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-27-pr-gastos-envio.mp4",
+   "titulo": "¿Barato en la foto y caro al pagar?",
+   "texto": "En Black Friday, un precio bonito a veces esconde los gastos de envío. Antes de pagar, mira el total en la cesta con el envío incluido, y si el envío cuesta más que lo que compras, piénsatelo dos veces."
+  },
+  {
+   "id": "2026-11-27-pr-cerdito-vater",
+   "fecha": "2026-11-27",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-27-pr-cerdito-vater.mp4",
+   "titulo": "Menos de tres euros. En serio.",
+   "texto": "Figurita divertida de un cerdito rosa sentado en el váter para decorar la casa, la oficina o el coche. Un regalo de broma para un amigo.",
+   "numeros": [
+    419
+   ]
+  },
+  {
+   "id": "2026-11-27-pr-etiqueta-maleta",
+   "fecha": "2026-11-27",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-27-pr-etiqueta-maleta.mp4",
+   "titulo": "¿Cuánto crees que cuesta esto?",
+   "texto": "Etiqueta de polipiel con hebilla ajustable y tarjeta para el nombre y la dirección. Para reconocer la maleta en el aeropuerto.",
+   "numeros": [
+    408
    ]
   }
  ]
