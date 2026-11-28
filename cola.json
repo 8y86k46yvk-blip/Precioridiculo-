@@ -1,36 +1,6 @@
 {
  "piezas": [
   {
-   "id": "2026-11-20-pr-barato-o-bueno",
-   "fecha": "2026-11-20",
-   "hora": "13:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-20-pr-barato-o-bueno.mp4",
-   "titulo": "El error de comprarlo todo lo más barato",
-   "texto": "Lo que usas a diario y tiene que durar: mejor gastar un poco más. Lo que vas a usar una vez, como un disfraz o un adorno de fiesta: ahí sí, precio ridículo. Antes de pagar, pregúntate cuántas veces lo vas a usar."
-  },
-  {
-   "id": "2026-11-20-pr-pinza-gorra",
-   "fecha": "2026-11-20",
-   "hora": "16:30",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-20-pr-pinza-gorra.mp4",
-   "titulo": "Tu gorra, enganchada por menos de cuatro euros",
-   "texto": "Pinza de silicona con imán para dejar la gorra enganchada a la mochila o a la maleta y llevar las manos libres.",
-   "numeros": [
-    221
-   ]
-  },
-  {
-   "id": "2026-11-20-pr-pinzas-ducha",
-   "fecha": "2026-11-20",
-   "hora": "19:00",
-   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-20-pr-pinzas-ducha.mp4",
-   "titulo": "¿Se te encharca el baño al ducharte?",
-   "texto": "Dos pinzas que mantienen la cortina de la ducha pegada a la pared para evitar salpicaduras en el suelo del baño.",
-   "numeros": [
-    195
-   ]
-  },
-  {
    "id": "2026-11-21-pr-tamano-real",
    "fecha": "2026-11-21",
    "hora": "13:00",
@@ -240,6 +210,38 @@
    "texto": "Etiqueta de polipiel con hebilla ajustable y tarjeta para el nombre y la dirección. Para reconocer la maleta en el aeropuerto.",
    "numeros": [
     408
+   ]
+  },
+  {
+   "id": "2026-11-28-pr-tres-fases-paquete",
+   "fecha": "2026-11-28",
+   "hora": "13:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-28-pr-tres-fases-paquete.mp4",
+   "titulo": "¿Recuerdas todo lo que pediste en Black Friday?",
+   "texto": "Esperar un paquete tiene tres fases: ilusión, olvido y sorpresa. Truco: apunta en una nota del móvil qué has pedido y en qué tienda; así, cuando llegue, sabes qué esperar y si falta algo."
+  },
+  {
+   "id": "2026-11-28-pr-top3-menos5",
+   "fecha": "2026-11-28",
+   "hora": "16:30",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-28-pr-top3-menos5.mp4",
+   "titulo": "¿Cuánto crees que cuestan estas tres cosas?",
+   "texto": "Tres cosas por menos de cinco euros: una funda para el pasaporte con estrellas brillantes, una bufanda con capucha de punto para el invierno y la gallina de goma que chilla para el perro.",
+   "numeros": [
+    436,
+    446,
+    429
+   ]
+  },
+  {
+   "id": "2026-11-28-pr-cama-gato-osito",
+   "fecha": "2026-11-28",
+   "hora": "19:00",
+   "url": "https://shorts.todo-picks-academy.pages.dev/precioridiculo/shorts/2026-11-28-pr-cama-gato-osito.mp4",
+   "titulo": "¿Tu gato también pasa frío en invierno?",
+   "texto": "Cama tipo cueva de forro polar grueso con forma de osito, para que el gato o un cachorro pequeño duerma calentito en invierno.",
+   "numeros": [
+    447
    ]
   }
  ]
